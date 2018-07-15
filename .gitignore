@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Chapter18.DataGridView/Chapter18.DataGridView/bin/Debug/Chapter18.DataGridView.pdb
+/Chapter18.DataGridView/Chapter18.DataGridView/bin/Debug/Chapter18.DataGridView.exe.config
+/Chapter18.DataGridView/Chapter18.DataGridView/bin/Debug/Chapter18.DataGridView.exe
+/Chapter18.CustomerMaintenance/.vs/Chapter18.CustomerMaintenance/v15
+/Chapter18.CustomerMaintenance/Chapter18.CustomerMaintenance/bin/Debug
+/Chapter18.CustomerMaintenance/Chapter18.CustomerMaintenance/obj/Debug
