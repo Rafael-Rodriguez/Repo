@@ -67,6 +67,10 @@
             this.fillByCustomerIDToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.fillByStateToolStrip = new System.Windows.Forms.ToolStrip();
+            this.stateToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.stateToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillByStateToolStripButton = new System.Windows.Forms.ToolStripButton();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -79,12 +83,13 @@
             this.customersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).BeginInit();
             this.fillByCustomerIDToolStrip.SuspendLayout();
+            this.fillByStateToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerIDLabel
             // 
             customerIDLabel.AutoSize = true;
-            customerIDLabel.Location = new System.Drawing.Point(12, 66);
+            customerIDLabel.Location = new System.Drawing.Point(12, 94);
             customerIDLabel.Name = "customerIDLabel";
             customerIDLabel.Size = new System.Drawing.Size(68, 13);
             customerIDLabel.TabIndex = 1;
@@ -93,7 +98,7 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(12, 92);
+            nameLabel.Location = new System.Drawing.Point(12, 120);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(38, 13);
             nameLabel.TabIndex = 3;
@@ -102,7 +107,7 @@
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(12, 118);
+            addressLabel.Location = new System.Drawing.Point(12, 146);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(48, 13);
             addressLabel.TabIndex = 5;
@@ -111,7 +116,7 @@
             // cityLabel
             // 
             cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(12, 144);
+            cityLabel.Location = new System.Drawing.Point(12, 172);
             cityLabel.Name = "cityLabel";
             cityLabel.Size = new System.Drawing.Size(27, 13);
             cityLabel.TabIndex = 7;
@@ -120,7 +125,7 @@
             // stateLabel
             // 
             stateLabel.AutoSize = true;
-            stateLabel.Location = new System.Drawing.Point(12, 170);
+            stateLabel.Location = new System.Drawing.Point(12, 198);
             stateLabel.Name = "stateLabel";
             stateLabel.Size = new System.Drawing.Size(35, 13);
             stateLabel.TabIndex = 9;
@@ -129,7 +134,7 @@
             // zipCodeLabel
             // 
             zipCodeLabel.AutoSize = true;
-            zipCodeLabel.Location = new System.Drawing.Point(213, 170);
+            zipCodeLabel.Location = new System.Drawing.Point(213, 198);
             zipCodeLabel.Name = "zipCodeLabel";
             zipCodeLabel.Size = new System.Drawing.Size(53, 13);
             zipCodeLabel.TabIndex = 11;
@@ -287,7 +292,7 @@
             // customerIDTextBox
             // 
             this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
-            this.customerIDTextBox.Location = new System.Drawing.Point(86, 63);
+            this.customerIDTextBox.Location = new System.Drawing.Point(86, 91);
             this.customerIDTextBox.Name = "customerIDTextBox";
             this.customerIDTextBox.ReadOnly = true;
             this.customerIDTextBox.Size = new System.Drawing.Size(121, 20);
@@ -296,7 +301,7 @@
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(86, 89);
+            this.nameTextBox.Location = new System.Drawing.Point(86, 117);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(313, 20);
             this.nameTextBox.TabIndex = 4;
@@ -304,7 +309,7 @@
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(86, 115);
+            this.addressTextBox.Location = new System.Drawing.Point(86, 143);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(313, 20);
             this.addressTextBox.TabIndex = 6;
@@ -312,7 +317,7 @@
             // cityTextBox
             // 
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "City", true));
-            this.cityTextBox.Location = new System.Drawing.Point(86, 141);
+            this.cityTextBox.Location = new System.Drawing.Point(86, 169);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(313, 20);
             this.cityTextBox.TabIndex = 8;
@@ -324,7 +329,7 @@
             this.stateComboBox.DisplayMember = "StateName";
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(86, 167);
+            this.stateComboBox.Location = new System.Drawing.Point(86, 195);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(121, 21);
             this.stateComboBox.TabIndex = 10;
@@ -338,7 +343,7 @@
             // zipCodeTextBox
             // 
             this.zipCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ZipCode", true));
-            this.zipCodeTextBox.Location = new System.Drawing.Point(287, 167);
+            this.zipCodeTextBox.Location = new System.Drawing.Point(287, 195);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(112, 20);
             this.zipCodeTextBox.TabIndex = 12;
@@ -391,11 +396,43 @@
             this.fillToolStripButton.Text = "Get All Customers";
             this.fillToolStripButton.Click += new System.EventHandler(this.fillToolStripButton_Click);
             // 
+            // fillByStateToolStrip
+            // 
+            this.fillByStateToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stateToolStripLabel,
+            this.stateToolStripTextBox,
+            this.fillByStateToolStripButton});
+            this.fillByStateToolStrip.Location = new System.Drawing.Point(0, 50);
+            this.fillByStateToolStrip.Name = "fillByStateToolStrip";
+            this.fillByStateToolStrip.Size = new System.Drawing.Size(431, 25);
+            this.fillByStateToolStrip.TabIndex = 14;
+            this.fillByStateToolStrip.Text = "fillByStateToolStrip";
+            // 
+            // stateToolStripLabel
+            // 
+            this.stateToolStripLabel.Name = "stateToolStripLabel";
+            this.stateToolStripLabel.Size = new System.Drawing.Size(36, 22);
+            this.stateToolStripLabel.Text = "State:";
+            // 
+            // stateToolStripTextBox
+            // 
+            this.stateToolStripTextBox.Name = "stateToolStripTextBox";
+            this.stateToolStripTextBox.Size = new System.Drawing.Size(100, 23);
+            // 
+            // fillByStateToolStripButton
+            // 
+            this.fillByStateToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByStateToolStripButton.Name = "fillByStateToolStripButton";
+            this.fillByStateToolStripButton.Size = new System.Drawing.Size(65, 19);
+            this.fillByStateToolStripButton.Text = "FillByState";
+            this.fillByStateToolStripButton.Click += new System.EventHandler(this.fillByStateToolStripButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 234);
+            this.ClientSize = new System.Drawing.Size(431, 236);
+            this.Controls.Add(this.fillByStateToolStrip);
             this.Controls.Add(this.fillByCustomerIDToolStrip);
             this.Controls.Add(customerIDLabel);
             this.Controls.Add(this.customerIDTextBox);
@@ -421,6 +458,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).EndInit();
             this.fillByCustomerIDToolStrip.ResumeLayout(false);
             this.fillByCustomerIDToolStrip.PerformLayout();
+            this.fillByStateToolStrip.ResumeLayout(false);
+            this.fillByStateToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,6 +498,10 @@
         private System.Windows.Forms.ToolStripButton fillByCustomerIDToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton fillToolStripButton;
+        private System.Windows.Forms.ToolStrip fillByStateToolStrip;
+        private System.Windows.Forms.ToolStripLabel stateToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox stateToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillByStateToolStripButton;
     }
 }
 
