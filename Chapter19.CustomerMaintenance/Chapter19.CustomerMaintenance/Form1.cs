@@ -42,5 +42,18 @@ namespace Chapter19.CustomerMaintenance
         {
             customersTableAdapter.Fill(mMABooksDataSet.Customers);
         }
+
+        private void fillByStateToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.customersTableAdapter.FillByState(this.mMABooksDataSet.Customers, stateToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
