@@ -1,6 +1,6 @@
 ﻿namespace Chapter20.CustomerMaintenance
 {
-    partial class Form1
+    partial class frmCustomerMaintenance
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,60 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(21, 50);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(38, 13);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "Name:";
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.Location = new System.Drawing.Point(21, 76);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new System.Drawing.Size(48, 13);
+            addressLabel.TabIndex = 5;
+            addressLabel.Text = "Address:";
+            // 
+            // cityLabel
+            // 
+            cityLabel.AutoSize = true;
+            cityLabel.Location = new System.Drawing.Point(21, 102);
+            cityLabel.Name = "cityLabel";
+            cityLabel.Size = new System.Drawing.Size(27, 13);
+            cityLabel.TabIndex = 7;
+            cityLabel.Text = "City:";
+            // 
+            // stateLabel
+            // 
+            stateLabel.AutoSize = true;
+            stateLabel.Location = new System.Drawing.Point(21, 128);
+            stateLabel.Name = "stateLabel";
+            stateLabel.Size = new System.Drawing.Size(35, 13);
+            stateLabel.TabIndex = 9;
+            stateLabel.Text = "State:";
+            // 
+            // zipCodeLabel
+            // 
+            zipCodeLabel.AutoSize = true;
+            zipCodeLabel.Location = new System.Drawing.Point(350, 128);
+            zipCodeLabel.Name = "zipCodeLabel";
+            zipCodeLabel.Size = new System.Drawing.Size(53, 13);
+            zipCodeLabel.TabIndex = 11;
+            zipCodeLabel.Text = "Zip Code:";
+            // 
+            // customerIDLabel
+            // 
+            customerIDLabel.AutoSize = true;
+            customerIDLabel.Location = new System.Drawing.Point(21, 19);
+            customerIDLabel.Name = "customerIDLabel";
+            customerIDLabel.Size = new System.Drawing.Size(68, 13);
+            customerIDLabel.TabIndex = 0;
+            customerIDLabel.Text = "Customer ID:";
+            // 
             // mMABooksDataSet
             // 
             this.mMABooksDataSet.DataSetName = "MMABooksDataSet";
@@ -77,31 +131,13 @@
             this.tableAdapterManager.StatesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Chapter20.CustomerMaintenance.MMABooksDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(21, 50);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(38, 13);
-            nameLabel.TabIndex = 1;
-            nameLabel.Text = "Name:";
-            // 
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Name", true));
             this.nameTextBox.Location = new System.Drawing.Point(95, 47);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(396, 20);
-            this.nameTextBox.TabIndex = 2;
-            // 
-            // addressLabel
-            // 
-            addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(21, 76);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(48, 13);
-            addressLabel.TabIndex = 3;
-            addressLabel.Text = "Address:";
+            this.nameTextBox.TabIndex = 4;
             // 
             // addressTextBox
             // 
@@ -109,16 +145,7 @@
             this.addressTextBox.Location = new System.Drawing.Point(95, 73);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(396, 20);
-            this.addressTextBox.TabIndex = 4;
-            // 
-            // cityLabel
-            // 
-            cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(21, 102);
-            cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(27, 13);
-            cityLabel.TabIndex = 5;
-            cityLabel.Text = "City:";
+            this.addressTextBox.TabIndex = 6;
             // 
             // cityTextBox
             // 
@@ -126,16 +153,7 @@
             this.cityTextBox.Location = new System.Drawing.Point(95, 99);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(396, 20);
-            this.cityTextBox.TabIndex = 6;
-            // 
-            // stateLabel
-            // 
-            stateLabel.AutoSize = true;
-            stateLabel.Location = new System.Drawing.Point(21, 128);
-            stateLabel.Name = "stateLabel";
-            stateLabel.Size = new System.Drawing.Size(35, 13);
-            stateLabel.TabIndex = 7;
-            stateLabel.Text = "State:";
+            this.cityTextBox.TabIndex = 8;
             // 
             // stateTextBox
             // 
@@ -143,16 +161,7 @@
             this.stateTextBox.Location = new System.Drawing.Point(95, 125);
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(35, 20);
-            this.stateTextBox.TabIndex = 8;
-            // 
-            // zipCodeLabel
-            // 
-            zipCodeLabel.AutoSize = true;
-            zipCodeLabel.Location = new System.Drawing.Point(350, 128);
-            zipCodeLabel.Name = "zipCodeLabel";
-            zipCodeLabel.Size = new System.Drawing.Size(53, 13);
-            zipCodeLabel.TabIndex = 9;
-            zipCodeLabel.Text = "Zip Code:";
+            this.stateTextBox.TabIndex = 10;
             // 
             // zipCodeTextBox
             // 
@@ -160,16 +169,7 @@
             this.zipCodeTextBox.Location = new System.Drawing.Point(409, 125);
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(82, 20);
-            this.zipCodeTextBox.TabIndex = 10;
-            // 
-            // customerIDLabel
-            // 
-            customerIDLabel.AutoSize = true;
-            customerIDLabel.Location = new System.Drawing.Point(21, 19);
-            customerIDLabel.Name = "customerIDLabel";
-            customerIDLabel.Size = new System.Drawing.Size(68, 13);
-            customerIDLabel.TabIndex = 11;
-            customerIDLabel.Text = "Customer ID:";
+            this.zipCodeTextBox.TabIndex = 12;
             // 
             // customerIDTextBox
             // 
@@ -177,22 +177,23 @@
             this.customerIDTextBox.Location = new System.Drawing.Point(95, 16);
             this.customerIDTextBox.Name = "customerIDTextBox";
             this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerIDTextBox.TabIndex = 12;
+            this.customerIDTextBox.TabIndex = 1;
             // 
             // buttonGetCustomer
             // 
             this.buttonGetCustomer.Location = new System.Drawing.Point(225, 13);
             this.buttonGetCustomer.Name = "buttonGetCustomer";
             this.buttonGetCustomer.Size = new System.Drawing.Size(96, 23);
-            this.buttonGetCustomer.TabIndex = 13;
+            this.buttonGetCustomer.TabIndex = 2;
             this.buttonGetCustomer.Text = "Get Customer";
             this.buttonGetCustomer.UseVisualStyleBackColor = true;
+            this.buttonGetCustomer.Click += new System.EventHandler(this.buttonGetCustomer_Click);
             // 
-            // Form1
+            // frmCustomerMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(508, 450);
             this.Controls.Add(this.buttonGetCustomer);
             this.Controls.Add(customerIDLabel);
             this.Controls.Add(this.customerIDTextBox);
@@ -206,9 +207,9 @@
             this.Controls.Add(this.stateTextBox);
             this.Controls.Add(zipCodeLabel);
             this.Controls.Add(this.zipCodeTextBox);
-            this.Name = "Form1";
+            this.Name = "frmCustomerMaintenance";
             this.Text = "Customer Maintenance";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.mMABooksDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             this.ResumeLayout(false);
