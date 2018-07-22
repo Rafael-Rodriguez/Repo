@@ -72,7 +72,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAddModifyCustomer addCustomerForm = new frmAddModifyCustomer();
-            addCustomerForm.AddCustomer = false;
+            addCustomerForm.AddCustomer = true;
 
             DialogResult result = addCustomerForm.ShowDialog();
             if(result == DialogResult.OK)

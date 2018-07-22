@@ -116,7 +116,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
             customer.Name = nameTextBox.Text;
             customer.Address = addressTextBox.Text;
             customer.City = cityTextBox.Text;
-            customer.State = stateComboBox.SelectedText;
+            customer.State = stateComboBox.SelectedValue as string;
             customer.ZipCode = zipCodeTextBox.Text;
         }
 
