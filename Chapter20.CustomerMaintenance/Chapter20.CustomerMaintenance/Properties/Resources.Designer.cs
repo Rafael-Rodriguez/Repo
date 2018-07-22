@@ -61,6 +61,24 @@ namespace Chapter20.CustomerMaintenance.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to   The address field is invalid..
+        /// </summary>
+        internal static string AddressIsInvalid {
+            get {
+                return ResourceManager.GetString("AddressIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   The city field is invalid..
+        /// </summary>
+        internal static string CityIsInvalid {
+            get {
+                return ResourceManager.GetString("CityIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer Not Found.
         /// </summary>
         internal static string GetCustomerNoCustomerWithIDCaption {
@@ -75,6 +93,33 @@ namespace Chapter20.CustomerMaintenance.Properties {
         internal static string GetCustomerNoCustomerWithIDMessage {
             get {
                 return ResourceManager.GetString("GetCustomerNoCustomerWithIDMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   The name field is invalid..
+        /// </summary>
+        internal static string NameIsInvalid {
+            get {
+                return ResourceManager.GetString("NameIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   The state field is invalid..
+        /// </summary>
+        internal static string StateIsInvalid {
+            get {
+                return ResourceManager.GetString("StateIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   The zip code field is invalid..
+        /// </summary>
+        internal static string ZipCodeIsInvalid {
+            get {
+                return ResourceManager.GetString("ZipCodeIsInvalid", resourceCulture);
             }
         }
     }

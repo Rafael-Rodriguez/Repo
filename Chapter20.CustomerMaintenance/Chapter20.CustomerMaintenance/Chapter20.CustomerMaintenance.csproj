@@ -46,8 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\CustomerRepository.cs" />
-    <Compile Include="Database\ICustomerRepository.cs" />
+    <Compile Include="Database\StateRepository.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Presentation\frmAddModifyCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmAddModifyCustomer.Designer.cs">
+      <DependentUpon>frmAddModifyCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\frmCustomerMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\frmAddModifyCustomer.resx">
+      <DependentUpon>frmAddModifyCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmCustomerMaintenance.resx">
       <DependentUpon>frmCustomerMaintenance.cs</DependentUpon>
     </EmbeddedResource>

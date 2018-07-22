@@ -1,19 +1,14 @@
 ﻿using Chapter20.CustomerMaintenance.Database;
 using Chapter20.CustomerMaintenance.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Chapter20.CustomerMaintenance
+namespace Chapter20.CustomerMaintenance.Presentation
 {
     public partial class frmCustomerMaintenance : Form
     {
+        public Customer Customer { get; set; }
+
         public frmCustomerMaintenance()
         {
             InitializeComponent();
@@ -48,6 +43,8 @@ namespace Chapter20.CustomerMaintenance
             cityTextBox.Text = customer.City;
             stateTextBox.Text = customer.State;
             zipCodeTextBox.Text = customer.ZipCode;
+
+            Customer = customer;
         }
 
         private void ClearControls()
@@ -58,11 +55,32 @@ namespace Chapter20.CustomerMaintenance
             cityTextBox.Text = "";
             stateTextBox.Text = "";
             zipCodeTextBox.Text = "";
+
+            Customer = null;
         }
 
         private void OnLoad(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAddModifyCustomer addCustomerForm = new frmAddModifyCustomer();
+            addCustomerForm.AddCustomer = false;
+
+            DialogResult result = addCustomerForm.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                var customer = addCustomerForm.Customer;
+                customerIDTextBox.Text = customer.CustomerID.ToString();
+                DisplayCustomer(customer);
+            }
         }
     }
 }
