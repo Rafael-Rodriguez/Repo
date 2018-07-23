@@ -11,37 +11,44 @@ namespace Chapter20.CustomerMaintenance.Database
         {
             var states = new List<State>();
 
-            var connection = new SqlConnection(Settings.Default.MMABooksConnectionString);
-            var selectStatement =   "SELECT StateCode, StateName " +
-                                    "FROM States " +
-                                    "ORDER BY StateName";
-            var selectCommand = new SqlCommand(selectStatement, connection);
-
-            try
+            using (var connection = new SqlConnection(Settings.Default.MMABooksConnectionString))
             {
-                connection.Open();
+                var selectStatement = "SELECT StateCode, StateName " +
+                                        "FROM States " +
+                                        "ORDER BY StateName";
+                var selectCommand = new SqlCommand(selectStatement, connection);
 
-                var reader = selectCommand.ExecuteReader();
-                while(reader.Read())
+                try
                 {
-                    var s = new State
-                    {
-                        StateCode = reader["StateCode"].ToString(),
-                        StateName = reader["StateName"].ToString()
-                    };
+                    connection.Open();
 
-                    states.Add(s);
+                    using (var reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var s = new State
+                            {
+                                StateCode = reader["StateCode"].ToString(),
+                                StateName = reader["StateName"].ToString()
+                            };
+
+                            states.Add(s);
+                        }
+
+                        reader.Close();
+                    }
+
                 }
-                reader.Close();
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
+                
 
             return states;
         }

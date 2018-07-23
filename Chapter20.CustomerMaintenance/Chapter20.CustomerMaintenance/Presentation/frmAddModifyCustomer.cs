@@ -26,7 +26,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
 
         private void LoadStateComboBox()
         {
-            List<State> states = StateRepository.GetStates();
+            var states = StateRepository.GetStates();
 
             try
             {
@@ -46,7 +46,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
             {
                 if(AddCustomer)
                 {
-                    Customer customer = new Customer();
+                    var customer = new Customer();
 
                     FillCustomerDataWithFields(customer);
 
@@ -76,7 +76,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
 
         private string GetErrorInFields()
         {
-            string error = string.Empty;
+            var error = string.Empty;
 
             if(!IsAlpha(nameTextBox.Text))
             {
