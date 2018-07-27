@@ -79,6 +79,60 @@ namespace Chapter20.CustomerMaintenance.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Customer.
+        /// </summary>
+        internal static string DeleteCustomerCaption {
+            get {
+                return ResourceManager.GetString("DeleteCustomerCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database Error.
+        /// </summary>
+        internal static string DeleteCustomerFailedCaption {
+            get {
+                return ResourceManager.GetString("DeleteCustomerFailedCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Another user has updated or deleted.
+        /// </summary>
+        internal static string DeleteCustomerFailedMessage {
+            get {
+                return ResourceManager.GetString("DeleteCustomerFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot delete customer.
+        /// </summary>
+        internal static string DeleteCustomerNoCustomerFoundCaption {
+            get {
+                return ResourceManager.GetString("DeleteCustomerNoCustomerFoundCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Need customer information.
+        /// </summary>
+        internal static string DeleteCustomerNoCustomerFoundMessage {
+            get {
+                return ResourceManager.GetString("DeleteCustomerNoCustomerFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string DeleteCustomerQuestion {
+            get {
+                return ResourceManager.GetString("DeleteCustomerQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer Not Found.
         /// </summary>
         internal static string GetCustomerNoCustomerWithIDCaption {
@@ -93,6 +147,24 @@ namespace Chapter20.CustomerMaintenance.Properties {
         internal static string GetCustomerNoCustomerWithIDMessage {
             get {
                 return ResourceManager.GetString("GetCustomerNoCustomerWithIDMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot modify customer.
+        /// </summary>
+        internal static string ModifyCustomerNoCustomerFoundCaption {
+            get {
+                return ResourceManager.GetString("ModifyCustomerNoCustomerFoundCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Need customer information..
+        /// </summary>
+        internal static string ModifyCustomerNoCustomerFoundMessage {
+            get {
+                return ResourceManager.GetString("ModifyCustomerNoCustomerFoundMessage", resourceCulture);
             }
         }
         

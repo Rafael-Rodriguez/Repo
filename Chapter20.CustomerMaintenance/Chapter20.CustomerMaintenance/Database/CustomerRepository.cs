@@ -91,5 +91,86 @@ namespace Chapter20.CustomerMaintenance.Database
                 }
             }
         }
+
+        public static void UpdateCustomer(Customer customer)
+        {
+            using (var connection = new SqlConnection(Settings.Default.MMABooksConnectionString))
+            {
+                var updateStatement = "UPDATE Customers " +
+                                      "SET Name = @Name, Address = @Address, City = @City, State = @State, ZipCode = @ZipCode " +
+                                      "WHERE CustomerID = @CustomerID";
+
+                var updateCommand = new SqlCommand(updateStatement, connection);
+
+                updateCommand.Parameters.AddWithValue("@Name", customer.Name);
+                updateCommand.Parameters.AddWithValue("@Address", customer.Address);
+                updateCommand.Parameters.AddWithValue("@City", customer.City);
+                updateCommand.Parameters.AddWithValue("@State", customer.State);
+                updateCommand.Parameters.AddWithValue("@ZipCode", customer.ZipCode);
+                updateCommand.Parameters.AddWithValue("@CustomerID", customer.CustomerID);
+
+                try
+                {
+                    connection.Open();
+
+                    updateCommand.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public static bool DeleteCustomer(Customer customer)
+        {
+            using (var connection = new SqlConnection(Settings.Default.MMABooksConnectionString))
+            {
+                var deleteStatement =   "DELETE FROM Customers " +
+                                        "WHERE CustomerID = @CustomerID AND " +
+                                        "Name = @Name AND " +
+                                        "Address = @Address AND " +
+                                        "City = @City AND " +
+                                        "State = @State AND " + 
+                                        "ZipCode = @ZipCode";
+
+                var deleteCommand = new SqlCommand(deleteStatement, connection);
+
+                deleteCommand.Parameters.AddWithValue("@CustomerID", customer.CustomerID);
+                deleteCommand.Parameters.AddWithValue("@Name", customer.Name);
+                deleteCommand.Parameters.AddWithValue("@Address", customer.Address);
+                deleteCommand.Parameters.AddWithValue("@City", customer.City);
+                deleteCommand.Parameters.AddWithValue("@State", customer.State);
+                deleteCommand.Parameters.AddWithValue("@ZipCode", customer.ZipCode);
+
+
+                try
+                {
+                    connection.Open();
+
+                    int count = deleteCommand.ExecuteNonQuery();
+                    if(count > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch(SqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

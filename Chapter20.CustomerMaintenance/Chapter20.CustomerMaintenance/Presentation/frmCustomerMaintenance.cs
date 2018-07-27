@@ -18,22 +18,26 @@ namespace Chapter20.CustomerMaintenance.Presentation
         {
             var customerIDText = customerIDTextBox.Text;
 
-            if(customerIDText != null)
+            if(!string.IsNullOrWhiteSpace(customerIDText))
             {
                 int customerID = Convert.ToInt32(customerIDText);
-
-                var customer = CustomerRepository.GetCustomer(customerID);
-                if(customer == null)
-                {
-                    MessageBox.Show(Properties.Resources.GetCustomerNoCustomerWithIDMessage, Properties.Resources.GetCustomerNoCustomerWithIDCaption);
-                    ClearControls();
-                }
-                else
-                {
-                    DisplayCustomer(customer);
-                }
+                GetCustomer(customerID);
             }
-            
+
+        }
+
+        private void GetCustomer(int customerID)
+        {
+            var customer = CustomerRepository.GetCustomer(customerID);
+            if (customer == null)
+            {
+                MessageBox.Show(Properties.Resources.GetCustomerNoCustomerWithIDMessage, Properties.Resources.GetCustomerNoCustomerWithIDCaption);
+                ClearControls();
+            }
+            else
+            {
+                DisplayCustomer(customer);
+            }
         }
 
         private void DisplayCustomer(Customer customer)
@@ -80,6 +84,62 @@ namespace Chapter20.CustomerMaintenance.Presentation
                 var customer = addCustomerForm.Customer;
                 customerIDTextBox.Text = customer.CustomerID.ToString();
                 DisplayCustomer(customer);
+            }
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            if(Customer == null)
+            {
+                MessageBox.Show(Properties.Resources.ModifyCustomerNoCustomerFoundMessage, Properties.Resources.ModifyCustomerNoCustomerFoundCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmAddModifyCustomer modifyCustomerForm = new frmAddModifyCustomer();
+            modifyCustomerForm.AddCustomer = false;
+            modifyCustomerForm.Customer = Customer;
+
+            DialogResult result = modifyCustomerForm.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                var customer = modifyCustomerForm.Customer;
+                DisplayCustomer(customer);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(Customer == null)
+            {
+                MessageBox.Show(Properties.Resources.DeleteCustomerNoCustomerFoundMessage, Properties.Resources.DeleteCustomerNoCustomerFoundCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var message = Properties.Resources.DeleteCustomerQuestion + " " + Customer.Name + " ?";
+            DialogResult result = MessageBox.Show(message, Properties.Resources.DeleteCustomerCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(result == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                if(!CustomerRepository.DeleteCustomer(Customer))
+                {
+                    var deleteCustomerFailedMessage = Properties.Resources.DeleteCustomerFailedMessage + " " + Customer.Name + " .";
+                    MessageBox.Show(deleteCustomerFailedMessage, Properties.Resources.DeleteCustomerFailedCaption);
+
+                    GetCustomer(Customer.CustomerID);
+                }
+                else
+                {
+                    ClearControls();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
     }

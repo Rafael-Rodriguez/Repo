@@ -123,11 +123,35 @@
   <data name="CityIsInvalid" xml:space="preserve">
     <value>  The city field is invalid.</value>
   </data>
+  <data name="DeleteCustomerCaption" xml:space="preserve">
+    <value>Delete Customer</value>
+  </data>
+  <data name="DeleteCustomerFailedCaption" xml:space="preserve">
+    <value>Database Error</value>
+  </data>
+  <data name="DeleteCustomerFailedMessage" xml:space="preserve">
+    <value>Another user has updated or deleted</value>
+  </data>
+  <data name="DeleteCustomerNoCustomerFoundCaption" xml:space="preserve">
+    <value>Cannot delete customer</value>
+  </data>
+  <data name="DeleteCustomerNoCustomerFoundMessage" xml:space="preserve">
+    <value>Need customer information</value>
+  </data>
+  <data name="DeleteCustomerQuestion" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="GetCustomerNoCustomerWithIDCaption" xml:space="preserve">
     <value>Customer Not Found</value>
   </data>
   <data name="GetCustomerNoCustomerWithIDMessage" xml:space="preserve">
     <value>There is no customer found with this ID</value>
+  </data>
+  <data name="ModifyCustomerNoCustomerFoundCaption" xml:space="preserve">
+    <value>Cannot modify customer</value>
+  </data>
+  <data name="ModifyCustomerNoCustomerFoundMessage" xml:space="preserve">
+    <value>Need customer information.</value>
   </data>
   <data name="NameIsInvalid" xml:space="preserve">
     <value>  The name field is invalid.</value>

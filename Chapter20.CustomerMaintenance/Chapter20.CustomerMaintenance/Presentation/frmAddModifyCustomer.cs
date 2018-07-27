@@ -22,6 +22,12 @@ namespace Chapter20.CustomerMaintenance.Presentation
         private void frmAddModifyCustomer_Load(object sender, System.EventArgs e)
         {
             LoadStateComboBox();
+
+            if(Customer != null)
+            {
+                PopulateFieldsWithCustomerInfo(Customer);
+            }
+            
         }
 
         private void LoadStateComboBox()
@@ -65,12 +71,26 @@ namespace Chapter20.CustomerMaintenance.Presentation
                 }
                 else
                 {
+                    var customer = new Customer();
+
+                    FillCustomerDataWithFields(customer);
+
+                    customer.CustomerID = Customer.CustomerID;
+
+                    UpdateCustomerInDatabase(customer);
+
+                    Customer = customer;
+
+                    DialogResult = DialogResult.OK;
                 }
             }
             else
             {
                 var error = GetErrorInFields();
+
                 MessageBox.Show($"Customer information is not valid. {error}", "Invalid data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                DialogResult = DialogResult.Retry;
             }
         }
 
@@ -111,6 +131,11 @@ namespace Chapter20.CustomerMaintenance.Presentation
             customer.CustomerID = CustomerRepository.AddCustomer(customer);
         }
 
+        private void UpdateCustomerInDatabase(Customer customer)
+        {
+            CustomerRepository.UpdateCustomer(customer);
+        }
+
         private void FillCustomerDataWithFields(Customer customer)
         {
             customer.Name = nameTextBox.Text;
@@ -118,6 +143,15 @@ namespace Chapter20.CustomerMaintenance.Presentation
             customer.City = cityTextBox.Text;
             customer.State = stateComboBox.SelectedValue as string;
             customer.ZipCode = zipCodeTextBox.Text;
+        }
+
+        private void PopulateFieldsWithCustomerInfo(Customer customer)
+        {
+            nameTextBox.Text = customer.Name;
+            addressTextBox.Text = customer.Address;
+            cityTextBox.Text = customer.City;
+            zipCodeTextBox.Text = customer.ZipCode;
+            stateComboBox.SelectedValue = customer.State;
         }
 
         private bool IsValidData()
@@ -136,7 +170,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
                 return false;
             }
 
-            Regex r = new Regex("^[a-zA-Z ]*$");
+            Regex r = new Regex("^[a-zA-Z ,]*$");
             if(r.IsMatch(text))
             {
                 return true;
@@ -152,7 +186,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
                 return false;
             }
 
-            Regex r = new Regex("^[0-9]*$");
+            Regex r = new Regex("^[0-9 ]*$");
             if (r.IsMatch(text))
             {
                 return true;
@@ -168,7 +202,7 @@ namespace Chapter20.CustomerMaintenance.Presentation
                 return false;
             }
 
-            Regex r = new Regex("^[a-zA-Z0-9 ]*$");
+            Regex r = new Regex("^[a-zA-Z0-9 ,]*$");
             if (r.IsMatch(text))
             {
                 return true;
