@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter24.CustomerDataModel", "Chapter24.CustomerDataModel\Chapter24.CustomerDataModel.csproj", "{DB6A7566-0A5F-4AC1-B95F-67827421A3A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB6A7566-0A5F-4AC1-B95F-67827421A3A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB6A7566-0A5F-4AC1-B95F-67827421A3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB6A7566-0A5F-4AC1-B95F-67827421A3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB6A7566-0A5F-4AC1-B95F-67827421A3A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5180984-DBCB-460D-91BE-62DB0656A687}
+	EndGlobalSection
+EndGlobal
