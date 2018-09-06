@@ -69,6 +69,7 @@
             this.btnGetCustomer.TabIndex = 2;
             this.btnGetCustomer.Text = "Get Customer";
             this.btnGetCustomer.UseVisualStyleBackColor = true;
+            this.btnGetCustomer.Click += new System.EventHandler(this.btnGetCustomer_Click);
             // 
             // label2
             // 

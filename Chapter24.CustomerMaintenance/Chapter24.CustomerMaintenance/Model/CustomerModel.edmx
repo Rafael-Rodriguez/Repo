@@ -56,9 +56,9 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ZipCode" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="State1" Relationship="Self.FK_Customers_States" FromRole="Customers" ToRole="States" />
+          <NavigationProperty Name="State" Relationship="Self.FK_Customers_States" FromRole="Customers" ToRole="States" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -76,7 +76,7 @@
               <PropertyRef Name="StateCode" />
             </Principal>
             <Dependent Role="Customers">
-              <PropertyRef Name="State" />
+              <PropertyRef Name="StateCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -101,7 +101,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="StateCode" ColumnName="State" />
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\rrodriguez\source\repos\Chapter24.CustomerMaintenance\Chapter24.CustomerMaintenance\Model\CustomerModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Rafael\source\Repo\Chapter24.CustomerMaintenance\Chapter24.CustomerMaintenance\Model\CustomerModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

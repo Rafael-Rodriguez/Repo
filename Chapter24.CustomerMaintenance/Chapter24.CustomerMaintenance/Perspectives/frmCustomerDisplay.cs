@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Chapter24.CustomerMaintenance.Perspectives.Extensions;
+using System;
 using System.Windows.Forms;
 
 namespace Chapter24.CustomerMaintenance.Perspectives
@@ -15,6 +9,14 @@ namespace Chapter24.CustomerMaintenance.Perspectives
         public frmCustomerDisplay()
         {
             InitializeComponent();
+        }
+
+        private void btnGetCustomer_Click(object sender, EventArgs e)
+        {
+            if(txtBoxCustomerID.IsPresent() && txtBoxCustomerID.IsInt32())
+            {
+                int customerID = Convert.ToInt32(txtBoxCustomerID.Text);
+            }
         }
     }
 }

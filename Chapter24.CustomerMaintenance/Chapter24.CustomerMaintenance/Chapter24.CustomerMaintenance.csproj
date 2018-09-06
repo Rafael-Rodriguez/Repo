@@ -57,6 +57,7 @@
     <Compile Include="Model\Customer.cs">
       <DependentUpon>CustomerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MMABooksEntity.cs" />
     <Compile Include="Model\CustomerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,6 +76,7 @@
     <Compile Include="Model\State.cs">
       <DependentUpon>CustomerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Perspectives\Extensions\TextBoxExtensions.cs" />
     <Compile Include="Perspectives\frmAddModifyCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,5 +142,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
