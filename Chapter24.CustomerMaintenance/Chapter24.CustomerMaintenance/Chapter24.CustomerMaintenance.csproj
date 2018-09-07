@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\frmCustomerDisplayController.cs" />
     <Compile Include="Model\Customer.cs">
       <DependentUpon>CustomerModel.tt</DependentUpon>
     </Compile>
