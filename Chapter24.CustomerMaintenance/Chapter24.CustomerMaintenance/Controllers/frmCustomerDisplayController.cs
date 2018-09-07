@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using Chapter24.CustomerMaintenance.Model;
+using Chapter24.CustomerMaintenance.Database;
 using Chapter24.CustomerMaintenance.Perspectives;
 
 namespace Chapter24.CustomerMaintenance.Controllers
 {
     public class frmCustomerDisplayController
     {
-        private MMABooksEntities _dbContext;
+        private ICustomerRepository _customerRepository;
         private object _syncLock = new object();
 
         public frmCustomerDisplayController(frmCustomerDisplay parentForm)
@@ -18,33 +17,34 @@ namespace Chapter24.CustomerMaintenance.Controllers
 
         private frmCustomerDisplay View { get; set; }
 
-        private MMABooksEntities DbContext
+        private ICustomerRepository CustomerRepository
         {
             get
             {
-                if(_dbContext == null)
+                if(_customerRepository == null)
                 {
                     lock(_syncLock)
                     {
-                        _dbContext = new MMABooksEntities();
+                        _customerRepository = new CustomerRepository();
                     }
                 }
 
-                return _dbContext;
+                return _customerRepository;
             }
         }
+
 
         internal void GetCustomer(string customerIdText)
         {
             int customerID = Convert.ToInt32(customerIdText);
-            GetCustomer(customerID);
+            GetCustomerByID(customerID);
         }
 
-        private void GetCustomer(int customerID)
+        internal void GetCustomerByID(int customerID)
         {
             try
             {
-                var matchingCustomer = DbContext.Customers.Where(customer => customer.CustomerID == customerID).SingleOrDefault();
+                var matchingCustomer = CustomerRepository.GetCustomerById(customerID);
 
                 if (matchingCustomer == null)
                 {
@@ -53,11 +53,6 @@ namespace Chapter24.CustomerMaintenance.Controllers
                 }
                 else
                 {
-                    if (!DbContext.Entry(matchingCustomer).Reference("State").IsLoaded)
-                    {
-                        DbContext.Entry(matchingCustomer).Reference("State").Load();
-                    }
-
                     View.DisplayCustomer(matchingCustomer);
                 }
             }
