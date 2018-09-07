@@ -41,8 +41,10 @@
             this.txtBoxState = new System.Windows.Forms.TextBox();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.btnModifyCustomer = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxZipCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -132,7 +134,7 @@
             // 
             this.txtBoxState.Location = new System.Drawing.Point(136, 185);
             this.txtBoxState.Name = "txtBoxState";
-            this.txtBoxState.Size = new System.Drawing.Size(366, 20);
+            this.txtBoxState.Size = new System.Drawing.Size(209, 20);
             this.txtBoxState.TabIndex = 5;
             // 
             // btnAddCustomer
@@ -146,6 +148,7 @@
             // 
             // btnModifyCustomer
             // 
+            this.btnModifyCustomer.Enabled = false;
             this.btnModifyCustomer.Location = new System.Drawing.Point(150, 235);
             this.btnModifyCustomer.Name = "btnModifyCustomer";
             this.btnModifyCustomer.Size = new System.Drawing.Size(86, 23);
@@ -153,14 +156,15 @@
             this.btnModifyCustomer.Text = "Modify";
             this.btnModifyCustomer.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnDeleteCustomer
             // 
-            this.button1.Location = new System.Drawing.Point(259, 235);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Modify";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Enabled = false;
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(259, 235);
+            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(86, 23);
+            this.btnDeleteCustomer.TabIndex = 6;
+            this.btnDeleteCustomer.Text = "Delete";
+            this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             // 
             // btnExit
             // 
@@ -171,19 +175,37 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(358, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Zip Code:";
+            // 
+            // txtBoxZipCode
+            // 
+            this.txtBoxZipCode.Location = new System.Drawing.Point(414, 185);
+            this.txtBoxZipCode.Name = "txtBoxZipCode";
+            this.txtBoxZipCode.Size = new System.Drawing.Size(88, 20);
+            this.txtBoxZipCode.TabIndex = 5;
+            // 
             // frmCustomerDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 281);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.btnModifyCustomer);
             this.Controls.Add(this.btnAddCustomer);
+            this.Controls.Add(this.txtBoxZipCode);
             this.Controls.Add(this.txtBoxState);
             this.Controls.Add(this.txtBoxCity);
             this.Controls.Add(this.txtBoxAddress);
             this.Controls.Add(this.txtBoxName);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -213,7 +235,9 @@
         private System.Windows.Forms.TextBox txtBoxState;
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Button btnModifyCustomer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtBoxZipCode;
     }
 }
