@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace Chapter24.CustomerMaintenance.Perspectives
 {
-    public partial class frmCustomerDisplay : Form
+    public partial class frmCustomerDisplay : Form, IfrmCustomerDisplay
     {
-        private frmCustomerDisplayController _controller;
+        private IfrmCustomerDisplayController _controller;
         private object _syncLock = new object();
 
         public frmCustomerDisplay()
@@ -16,7 +16,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             InitializeComponent();
         }
 
-        private frmCustomerDisplayController Controller
+        private IfrmCustomerDisplayController Controller
         {
             get
             {
@@ -36,11 +36,11 @@ namespace Chapter24.CustomerMaintenance.Perspectives
         {
             if(txtBoxCustomerID.IsPresent() && txtBoxCustomerID.IsInt32())
             {
-                Controller.GetCustomer(txtBoxCustomerID.Text);
+                Controller.DisplayCustomer(txtBoxCustomerID.Text);
             }
         }
 
-        internal void DisplayCustomer(Customer customer)
+        public void DisplayCustomer(Customer customer)
         {
             txtBoxName.Text = customer.Name;
             txtBoxAddress.Text = customer.Address;
@@ -52,7 +52,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             btnDeleteCustomer.Enabled = true;
         }
 
-        internal void ClearControls()
+        public void ClearControls()
         {
             txtBoxName.Text = "";
             txtBoxAddress.Text = "";

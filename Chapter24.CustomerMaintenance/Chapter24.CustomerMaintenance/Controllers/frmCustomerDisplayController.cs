@@ -1,21 +1,29 @@
 ﻿using System;
-using System.Windows.Forms;
 using Chapter24.CustomerMaintenance.Database;
 using Chapter24.CustomerMaintenance.Perspectives;
+using Chapter24.CustomerMaintenance.Perspectives.Components;
 
 namespace Chapter24.CustomerMaintenance.Controllers
 {
-    public class frmCustomerDisplayController
+    public class frmCustomerDisplayController : IfrmCustomerDisplayController
     {
         private ICustomerRepository _customerRepository;
         private object _syncLock = new object();
+        private IMessageBox _messageBox;
 
-        public frmCustomerDisplayController(frmCustomerDisplay parentForm)
+        internal frmCustomerDisplayController(IfrmCustomerDisplay view)
         {
-            View = parentForm;
+            View = view;
         }
 
-        private frmCustomerDisplay View { get; set; }
+        public frmCustomerDisplayController(IfrmCustomerDisplay view, ICustomerRepository customerRepository, IMessageBox messageBox)
+        {
+            View = view;
+            _customerRepository = customerRepository;
+            _messageBox = messageBox;
+        }
+
+        private IfrmCustomerDisplay View { get; }
 
         private ICustomerRepository CustomerRepository
         {
@@ -33,14 +41,36 @@ namespace Chapter24.CustomerMaintenance.Controllers
             }
         }
 
-
-        internal void GetCustomer(string customerIdText)
+        private IMessageBox MessageBox
         {
-            int customerID = Convert.ToInt32(customerIdText);
-            GetCustomerByID(customerID);
+            get
+            {
+                if(_messageBox == null)
+                {
+                    lock(_syncLock)
+                    {
+                        _messageBox = new MessageBox();
+                    }
+                }
+
+                return _messageBox;
+            }
         }
 
-        internal void GetCustomerByID(int customerID)
+
+        public void DisplayCustomer(string customerIdText)
+        {
+            if(customerIdText == null)
+            {
+                throw new ArgumentNullException(nameof(customerIdText));
+            }
+
+            int customerID = Convert.ToInt32(customerIdText);
+
+            DisplayCustomerByID(customerID);
+        }
+
+        public void DisplayCustomerByID(int customerID)
         {
             try
             {
