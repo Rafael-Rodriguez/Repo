@@ -14,7 +14,7 @@ namespace Chapter24.CustomerMaintenance
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCustomerDisplay());
+            Application.Run(new Controllers.ModuleController().Run());
         }
     }
 }

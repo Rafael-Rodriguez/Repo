@@ -16,6 +16,7 @@ namespace Chapter24.CustomerMaintenanceTest.Controllers
         private Mock<IfrmCustomerDisplay> _viewMock;
         private Mock<IMessageBox> _messageBoxMock;
         private Mock<ICustomerRepository> _customerRepositoryMock;
+        private Mock<IModuleController> _moduleControllerMock;
 
         [TestInitialize]
         public void Initialize()
@@ -23,8 +24,9 @@ namespace Chapter24.CustomerMaintenanceTest.Controllers
             _viewMock = new Mock<IfrmCustomerDisplay>();
             _messageBoxMock = new Mock<IMessageBox>();
             _customerRepositoryMock = new Mock<ICustomerRepository>();
+            _moduleControllerMock = new Mock<IModuleController>();
 
-            _sut = new frmCustomerDisplayController(_viewMock.Object, _customerRepositoryMock.Object, _messageBoxMock.Object);
+            _sut = new frmCustomerDisplayController(_viewMock.Object, _customerRepositoryMock.Object, _messageBoxMock.Object, _moduleControllerMock.Object);
         }
 
         [TestMethod]

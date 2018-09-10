@@ -54,10 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controllers\frmAddCustomerController.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\frmModifyCustomerController.cs" />
     <Compile Include="Controllers\frmCustomerDisplayController.cs" />
-    <Compile Include="Controllers\IfrmCustomerDisplayController.cs" />
+    <Compile Include="Controllers\IModuleController.cs" />
     <Compile Include="Database\CustomerRepository.cs" />
     <Compile Include="Database\ICustomerRepository.cs" />
+    <Compile Include="EventArgs\AddModifyCustomerEventArgs.cs" />
+    <Compile Include="EventArgs\CustomerAddedEventArgs.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Model\Customer.cs">
       <DependentUpon>CustomerModel.tt</DependentUpon>
@@ -83,25 +90,40 @@
     <Compile Include="Perspectives\Components\IMessageBox.cs" />
     <Compile Include="Perspectives\Components\MessageBox.cs" />
     <Compile Include="Perspectives\Extensions\TextBoxExtensions.cs" />
-    <Compile Include="Perspectives\frmAddModifyCustomer.cs">
+    <Compile Include="Perspectives\Views\frmAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Perspectives\frmAddModifyCustomer.Designer.cs">
-      <DependentUpon>frmAddModifyCustomer.cs</DependentUpon>
+    <Compile Include="Perspectives\Views\frmAddCustomer.Designer.cs">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Perspectives\frmCustomerDisplay.cs">
+    <Compile Include="Perspectives\Views\frmModifyCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Perspectives\frmCustomerDisplay.Designer.cs">
+    <Compile Include="Perspectives\Views\frmModifyCustomer.Designer.cs">
+      <DependentUpon>frmModifyCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perspectives\Views\frmCustomerDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perspectives\Views\frmCustomerDisplay.Designer.cs">
       <DependentUpon>frmCustomerDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Perspectives\IfrmCustomerDisplay.cs" />
+    <Compile Include="Perspectives\Views\IfrmAddCustomer.cs" />
+    <Compile Include="Perspectives\Views\IfrmModifyCustomer.cs" />
+    <Compile Include="Perspectives\Views\IfrmCustomerDisplay.cs" />
+    <Compile Include="Perspectives\Views\IView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Perspectives\frmAddModifyCustomer.resx">
-      <DependentUpon>frmAddModifyCustomer.cs</DependentUpon>
+    <Compile Include="Services\IProgramFlowManager.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\ProgramFlowManager.cs" />
+    <EmbeddedResource Include="Perspectives\Views\frmAddCustomer.resx">
+      <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perspectives\frmCustomerDisplay.resx">
+    <EmbeddedResource Include="Perspectives\Views\frmModifyCustomer.resx">
+      <DependentUpon>frmModifyCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perspectives\Views\frmCustomerDisplay.resx">
       <DependentUpon>frmCustomerDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

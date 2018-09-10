@@ -2,7 +2,7 @@
 
 namespace Chapter24.CustomerMaintenance.Perspectives
 {
-    public interface IfrmCustomerDisplay
+    public interface IfrmCustomerDisplay : IView
     {
         void DisplayCustomer(Customer customer);
 

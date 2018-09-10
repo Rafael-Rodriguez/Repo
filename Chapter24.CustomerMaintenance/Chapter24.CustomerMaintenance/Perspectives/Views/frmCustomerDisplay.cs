@@ -6,17 +6,20 @@ using System.Windows.Forms;
 
 namespace Chapter24.CustomerMaintenance.Perspectives
 {
-    public partial class frmCustomerDisplay : Form, IfrmCustomerDisplay
+    public partial class frmCustomerDisplay : Form, IfrmCustomerDisplay, IView
     {
-        private IfrmCustomerDisplayController _controller;
+        private frmCustomerDisplayController _controller;
         private object _syncLock = new object();
+        private IModuleController _moduleController;
 
-        public frmCustomerDisplay()
+        public frmCustomerDisplay(IModuleController controller)
         {
+            _moduleController = controller;
+
             InitializeComponent();
         }
 
-        private IfrmCustomerDisplayController Controller
+        private frmCustomerDisplayController Controller
         {
             get
             {
@@ -24,7 +27,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
                 {
                     lock(_syncLock)
                     {
-                        _controller = new frmCustomerDisplayController(this);
+                        _controller = new frmCustomerDisplayController(this,_moduleController);
                     }
                 }
 
@@ -32,7 +35,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             }
         }
 
-        private void btnGetCustomer_Click(object sender, EventArgs e)
+        private void btnGetCustomer_Click(object sender, System.EventArgs e)
         {
             if(txtBoxCustomerID.IsPresent() && txtBoxCustomerID.IsInt32())
             {
@@ -65,6 +68,16 @@ namespace Chapter24.CustomerMaintenance.Perspectives
 
             btnModifyCustomer.Enabled = false;
             btnDeleteCustomer.Enabled = false;
+        }
+
+        private void btnExit_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAddCustomer_Click(object sender, System.EventArgs e)
+        {
+            Controller.AddCustomer();
         }
     }
 }

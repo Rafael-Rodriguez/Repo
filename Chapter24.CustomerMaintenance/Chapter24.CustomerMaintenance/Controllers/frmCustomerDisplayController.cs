@@ -1,29 +1,31 @@
 ﻿using System;
 using Chapter24.CustomerMaintenance.Database;
+using Chapter24.CustomerMaintenance.EventArgs;
 using Chapter24.CustomerMaintenance.Perspectives;
 using Chapter24.CustomerMaintenance.Perspectives.Components;
+using Chapter24.CustomerMaintenance.Services;
 
 namespace Chapter24.CustomerMaintenance.Controllers
 {
-    public class frmCustomerDisplayController : IfrmCustomerDisplayController
+    public class frmCustomerDisplayController : Controller<IfrmCustomerDisplay>
     {
         private ICustomerRepository _customerRepository;
         private object _syncLock = new object();
         private IMessageBox _messageBox;
 
-        internal frmCustomerDisplayController(IfrmCustomerDisplay view)
+        internal frmCustomerDisplayController(IfrmCustomerDisplay view, IModuleController moduleController)
+            : base(moduleController)
         {
             View = view;
         }
 
-        public frmCustomerDisplayController(IfrmCustomerDisplay view, ICustomerRepository customerRepository, IMessageBox messageBox)
+        public frmCustomerDisplayController(IfrmCustomerDisplay view, ICustomerRepository customerRepository, IMessageBox messageBox, IModuleController moduleController)
+            : base(moduleController)
         {
             View = view;
             _customerRepository = customerRepository;
             _messageBox = messageBox;
         }
-
-        private IfrmCustomerDisplay View { get; }
 
         private ICustomerRepository CustomerRepository
         {
@@ -90,7 +92,12 @@ namespace Chapter24.CustomerMaintenance.Controllers
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
+        }
 
+        public void AddCustomer()
+        {
+            var programFlowManager = ModuleController.GetService<IProgramFlowManager>();
+            programFlowManager.AddNewCustomer();
         }
     }
 }

@@ -145,6 +145,7 @@
             this.btnAddCustomer.TabIndex = 6;
             this.btnAddCustomer.Text = "Add";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // btnModifyCustomer
             // 
@@ -174,6 +175,7 @@
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label6
             // 
@@ -213,6 +215,8 @@
             this.Controls.Add(this.btnGetCustomer);
             this.Controls.Add(this.txtBoxCustomerID);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCustomerDisplay";
             this.Text = "Customer Maintenance";
             this.ResumeLayout(false);
