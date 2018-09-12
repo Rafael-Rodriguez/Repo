@@ -16,7 +16,7 @@
         private System.Windows.Forms.TextBox txtBoxCity;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxZipCode;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnCancel;
     }
