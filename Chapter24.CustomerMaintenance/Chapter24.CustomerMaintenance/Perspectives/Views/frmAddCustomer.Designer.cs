@@ -34,12 +34,12 @@
             this.cboBoxState = new System.Windows.Forms.ComboBox();
             this.txtBoxCity = new System.Windows.Forms.TextBox();
             this.txtBoxAddress = new System.Windows.Forms.TextBox();
-            this.txtBoxName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.maskedTextBoxName = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -50,6 +50,7 @@
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAccept
             // 
@@ -59,6 +60,7 @@
             this.btnAccept.TabIndex = 16;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // txtBoxZipCode
             // 
@@ -88,13 +90,6 @@
             this.txtBoxAddress.Name = "txtBoxAddress";
             this.txtBoxAddress.Size = new System.Drawing.Size(447, 20);
             this.txtBoxAddress.TabIndex = 12;
-            // 
-            // txtBoxName
-            // 
-            this.txtBoxName.Location = new System.Drawing.Point(112, 34);
-            this.txtBoxName.Name = "txtBoxName";
-            this.txtBoxName.Size = new System.Drawing.Size(447, 20);
-            this.txtBoxName.TabIndex = 13;
             // 
             // label4
             // 
@@ -141,11 +136,19 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Zip Code:";
             // 
+            // maskedTextBoxName
+            // 
+            this.maskedTextBoxName.Location = new System.Drawing.Point(112, 26);
+            this.maskedTextBoxName.Name = "maskedTextBoxName";
+            this.maskedTextBoxName.Size = new System.Drawing.Size(447, 20);
+            this.maskedTextBoxName.TabIndex = 19;
+            // 
             // frmAddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 248);
+            this.Controls.Add(this.maskedTextBoxName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAccept);
@@ -153,7 +156,6 @@
             this.Controls.Add(this.cboBoxState);
             this.Controls.Add(this.txtBoxCity);
             this.Controls.Add(this.txtBoxAddress);
-            this.Controls.Add(this.txtBoxName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -175,11 +177,11 @@
         private System.Windows.Forms.ComboBox cboBoxState;
         private System.Windows.Forms.TextBox txtBoxCity;
         private System.Windows.Forms.TextBox txtBoxAddress;
-        private System.Windows.Forms.TextBox txtBoxName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxName;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Chapter24.CustomerMaintenance.Perspectives.Extensions
 {
@@ -6,21 +7,18 @@ namespace Chapter24.CustomerMaintenance.Perspectives.Extensions
     {
         public static bool IsPresent(this TextBox textBox)
         {
-            bool result = false;
-
-            result = textBox.TextLength > 0 &&
-                        textBox.Text != null;
-
-            return result;
+            return textBox != null && textBox.TextLength > 0 && textBox.Text != null;
         }
 
         public static bool IsInt32(this TextBox textBox)
         {
-            bool result = false;
+            return int.TryParse(textBox.Text, out int textBoxValue);
+        }
 
-            result = int.TryParse(textBox.Text, out int textBoxValue);
-
-            return result;
+        public static bool IsAlpha(this TextBox textBox)
+        {
+            Regex regex = new Regex("^[a-zA-Z]");
+            return textBox != null && textBox.IsPresent() && regex.IsMatch(textBox.Text);
         }
     }
 }
