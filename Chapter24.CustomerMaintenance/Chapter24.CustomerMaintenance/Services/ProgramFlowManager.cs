@@ -1,4 +1,5 @@
 ﻿using Chapter24.CustomerMaintenance.Controllers;
+using Chapter24.CustomerMaintenance.Model;
 using Chapter24.CustomerMaintenance.Perspectives;
 using Chapter24.CustomerMaintenance.Perspectives.Views;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace Chapter24.CustomerMaintenance.Services
             _moduleController = moduleController;
         }
 
-        public void AddNewCustomer()
+        public Customer AddNewCustomer()
         {
             var addCustomerForm = _moduleController.GetView<IfrmAddCustomer>();
             addCustomerForm.Customer = null;
@@ -22,9 +23,14 @@ namespace Chapter24.CustomerMaintenance.Services
 
             if(dialogResult == DialogResult.OK)
             {
-                var customerDisplayForm = _moduleController.GetView<IfrmCustomerDisplay>();
-                customerDisplayForm.DisplayCustomer(addCustomerForm.Customer);
+                //return true;
+                //var customerDisplayForm = _moduleController.GetView<IfrmCustomerDisplay>();
+                //customerDisplayForm.DisplayCustomer(addCustomerForm.Customer);
+
+                return addCustomerForm.Customer;
             }
+
+            return null;
         }
     }
 }

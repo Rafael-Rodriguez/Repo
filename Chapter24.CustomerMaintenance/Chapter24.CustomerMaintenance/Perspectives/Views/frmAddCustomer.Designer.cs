@@ -47,7 +47,7 @@
             this.btnCancel.Location = new System.Drawing.Point(461, 192);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(93, 23);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -57,16 +57,17 @@
             this.btnAccept.Location = new System.Drawing.Point(27, 192);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(88, 23);
-            this.btnAccept.TabIndex = 16;
+            this.btnAccept.TabIndex = 5;
             this.btnAccept.Text = "Accept";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // txtBoxZipCode
             // 
             this.txtBoxZipCode.Location = new System.Drawing.Point(461, 139);
             this.txtBoxZipCode.Name = "txtBoxZipCode";
             this.txtBoxZipCode.Size = new System.Drawing.Size(98, 20);
-            this.txtBoxZipCode.TabIndex = 15;
+            this.txtBoxZipCode.TabIndex = 4;
             // 
             // cboBoxState
             // 
@@ -74,28 +75,28 @@
             this.cboBoxState.Location = new System.Drawing.Point(112, 139);
             this.cboBoxState.Name = "cboBoxState";
             this.cboBoxState.Size = new System.Drawing.Size(246, 21);
-            this.cboBoxState.TabIndex = 14;
+            this.cboBoxState.TabIndex = 3;
             // 
             // txtBoxCity
             // 
             this.txtBoxCity.Location = new System.Drawing.Point(112, 104);
             this.txtBoxCity.Name = "txtBoxCity";
             this.txtBoxCity.Size = new System.Drawing.Size(447, 20);
-            this.txtBoxCity.TabIndex = 11;
+            this.txtBoxCity.TabIndex = 2;
             // 
             // txtBoxAddress
             // 
             this.txtBoxAddress.Location = new System.Drawing.Point(112, 69);
             this.txtBoxAddress.Name = "txtBoxAddress";
             this.txtBoxAddress.Size = new System.Drawing.Size(447, 20);
-            this.txtBoxAddress.TabIndex = 12;
+            this.txtBoxAddress.TabIndex = 1;
             // 
             // txtBoxName
             // 
             this.txtBoxName.Location = new System.Drawing.Point(112, 34);
             this.txtBoxName.Name = "txtBoxName";
             this.txtBoxName.Size = new System.Drawing.Size(447, 20);
-            this.txtBoxName.TabIndex = 13;
+            this.txtBoxName.TabIndex = 0;
             // 
             // label4
             // 

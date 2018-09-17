@@ -1,4 +1,7 @@
-﻿using Chapter24.CustomerMaintenance.Database;
+﻿using System;
+using System.Windows.Forms;
+using Chapter24.CustomerMaintenance.Database;
+using Chapter24.CustomerMaintenance.Model;
 using Chapter24.CustomerMaintenance.Perspectives.Views;
 
 namespace Chapter24.CustomerMaintenance.Controllers
@@ -7,6 +10,7 @@ namespace Chapter24.CustomerMaintenance.Controllers
     {
         private IfrmAddCustomer _view;
         private IStateRepository _stateRepository;
+        private ICustomerRepository _customerRepository;
         private readonly object _syncLock = new object();
 
         internal frmAddCustomerController(IfrmAddCustomer view, IModuleController moduleController)
@@ -39,12 +43,41 @@ namespace Chapter24.CustomerMaintenance.Controllers
 
                 return _stateRepository;
             }
+        }
 
+        private ICustomerRepository CustomerRepository
+        {
+            get
+            {
+                if(_customerRepository == null)
+                {
+                    lock(_syncLock)
+                    {
+                        if(_customerRepository == null)
+                        {
+                            _customerRepository = new CustomerRepository();
+                        }
+                    }
+                }
+
+                return _customerRepository;
+            }
         }
 
         internal void OnLoad()
         {
             LoadStateComboBox();
+        }
+
+        internal bool AddCustomer(Customer customer)
+        {
+            if(!CustomerRepository.AddCustomer(customer))
+            {
+                MessageBox.Show(Properties.Resources.ErrorUnableToAddCustomer);
+                return false;
+            }
+
+            return true;
         }
 
         private void LoadStateComboBox()

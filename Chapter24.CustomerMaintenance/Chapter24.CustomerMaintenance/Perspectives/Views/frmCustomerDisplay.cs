@@ -49,6 +49,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             txtBoxCity.Text = customer.City;
             txtBoxState.Text = customer.State.StateName;
             txtBoxZipCode.Text = customer.ZipCode;
+            txtBoxCustomerID.Text = customer.CustomerID.ToString();
 
             btnModifyCustomer.Enabled = true;
             btnDeleteCustomer.Enabled = true;

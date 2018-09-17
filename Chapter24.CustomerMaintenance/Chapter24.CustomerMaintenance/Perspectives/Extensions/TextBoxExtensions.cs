@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Chapter24.CustomerMaintenance.Perspectives.Extensions
 {
@@ -21,6 +22,20 @@ namespace Chapter24.CustomerMaintenance.Perspectives.Extensions
             result = int.TryParse(textBox.Text, out int textBoxValue);
 
             return result;
+        }
+
+        public static bool IsAlphaOnly(this TextBox textBox)
+        {
+            Regex regex = new Regex("^[a-zA-Z ]+$");
+
+            return regex.IsMatch(textBox.Text);
+        }
+
+        public static bool IsAlphaNumericOnly(this TextBox textBox)
+        {
+            Regex regex = new Regex("^[a-zA-Z0-9 ]+$");
+
+            return regex.IsMatch(textBox.Text);
         }
     }
 }

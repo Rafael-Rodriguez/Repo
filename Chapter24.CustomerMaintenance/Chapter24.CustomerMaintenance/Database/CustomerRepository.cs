@@ -1,4 +1,5 @@
 ﻿using Chapter24.CustomerMaintenance.Model;
+using System;
 using System.Linq;
 
 namespace Chapter24.CustomerMaintenance.Database
@@ -37,6 +38,22 @@ namespace Chapter24.CustomerMaintenance.Database
             }
 
             return matchingCustomer;
+        }
+
+        public bool AddCustomer(Customer customer)
+        {
+            DbContext.Customers.Add(customer);
+
+            try
+            {
+                DbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
