@@ -63,6 +63,8 @@
     <Compile Include="Controllers\IModuleController.cs" />
     <Compile Include="Database\CustomerRepository.cs" />
     <Compile Include="Database\ICustomerRepository.cs" />
+    <Compile Include="Database\IStateRepository.cs" />
+    <Compile Include="Database\StateRepository.cs" />
     <Compile Include="EventArgs\AddModifyCustomerEventArgs.cs" />
     <Compile Include="EventArgs\CustomerAddedEventArgs.cs" />
     <Compile Include="GlobalSuppressions.cs" />

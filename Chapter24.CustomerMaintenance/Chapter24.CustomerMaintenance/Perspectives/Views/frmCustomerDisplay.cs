@@ -1,15 +1,14 @@
 ﻿using Chapter24.CustomerMaintenance.Controllers;
 using Chapter24.CustomerMaintenance.Model;
 using Chapter24.CustomerMaintenance.Perspectives.Extensions;
-using System;
 using System.Windows.Forms;
 
 namespace Chapter24.CustomerMaintenance.Perspectives
 {
-    public partial class frmCustomerDisplay : Form, IfrmCustomerDisplay, IView
+    public partial class frmCustomerDisplay : Form, IfrmCustomerDisplay
     {
         private frmCustomerDisplayController _controller;
-        private object _syncLock = new object();
+        private readonly object _syncLock = new object();
         private IModuleController _moduleController;
 
         public frmCustomerDisplay(IModuleController controller)
