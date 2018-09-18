@@ -1,16 +1,80 @@
-﻿using Chapter24.CustomerMaintenance.Perspectives.Views;
+﻿using Chapter24.CustomerMaintenance.Database;
+using Chapter24.CustomerMaintenance.Perspectives.Views;
 
 namespace Chapter24.CustomerMaintenance.Controllers
 {
-    public class frmModifyCustomerController
+    public class frmModifyCustomerController : Controller<IfrmModifyCustomer>
     {
         private IfrmModifyCustomer _view;
+        private readonly object _syncLock = new object();
+        private IStateRepository _stateRepository;
+        private ICustomerRepository _customerRepository;
 
-        internal frmModifyCustomerController(IfrmModifyCustomer view)
+        internal frmModifyCustomerController(IfrmModifyCustomer view, IModuleController _moduleController)
+            : base(_moduleController)
         {
-            _view = view;
+            View = view;
+        }
+
+        private IStateRepository StateRepository
+        {
+            get
+            {
+                if (_stateRepository == null)
+                {
+                    lock (_syncLock)
+                    {
+                        if (_stateRepository == null)
+                        {
+                            _stateRepository = new StateRepository();
+                        }
+                    }
+                }
+
+                return _stateRepository;
+            }
+        }
+
+        private ICustomerRepository CustomerRepository
+        {
+            get
+            {
+                if (_customerRepository == null)
+                {
+                    lock (_syncLock)
+                    {
+                        if (_customerRepository == null)
+                        {
+                            _customerRepository = new CustomerRepository();
+                        }
+                    }
+                }
+
+                return _customerRepository;
+            }
         }
 
 
+        public void OnLoad(int customerID)
+        {
+            LoadStateComboBox();
+            LoadCustomerInfo(customerID);
+        }
+
+        private void LoadStateComboBox()
+        {
+            View.InitializeStateComboBox(StateRepository.GetStates());
+        }
+
+        private void LoadCustomerInfo(int customerID)
+        {
+            var customer = CustomerRepository.GetCustomerById(customerID);
+
+            if (customer != null)
+            {
+                View.DisplayCustomer(customer);
+            }
+            
+        }
     }
 }

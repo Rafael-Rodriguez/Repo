@@ -105,5 +105,16 @@ namespace Chapter24.CustomerMaintenance.Controllers
                 DisplayCustomerByID(customerAdded.CustomerID);
             }
         }
+
+        public void ModifyCustomer(int customerId)
+        {
+            var programFlowManager = ModuleController.GetService<IProgramFlowManager>();
+            Customer customerModified = programFlowManager.ModifyCustomer(customerId);
+
+            if (customerModified != null)
+            {
+                DisplayCustomerByID(customerModified.CustomerID);
+            }
+        }
     }
 }

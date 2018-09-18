@@ -129,4 +129,7 @@
   <data name="ErrorUnableToAddCustomer" xml:space="preserve">
     <value>Unable to add the customer</value>
   </data>
+  <data name="ErrorUnableToModifyCustomerInvalidID" xml:space="preserve">
+    <value>Unable to modify the customer.  ID is invalid.</value>
+  </data>
 </root>

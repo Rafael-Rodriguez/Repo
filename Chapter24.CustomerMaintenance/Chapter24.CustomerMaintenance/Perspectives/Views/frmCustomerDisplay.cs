@@ -79,5 +79,16 @@ namespace Chapter24.CustomerMaintenance.Perspectives
         {
             Controller.AddCustomer();
         }
+
+        private void btnModifyCustomer_Click(object sender, System.EventArgs e)
+        {
+            if (!int.TryParse(txtBoxCustomerID.Text, out int customerID))
+            {
+                MessageBox.Show(Properties.Resources.ErrorUnableToModifyCustomerInvalidID);
+                return;
+            }
+
+            Controller.ModifyCustomer(customerID);
+        }
     }
 }

@@ -23,11 +23,21 @@ namespace Chapter24.CustomerMaintenance.Services
 
             if(dialogResult == DialogResult.OK)
             {
-                //return true;
-                //var customerDisplayForm = _moduleController.GetView<IfrmCustomerDisplay>();
-                //customerDisplayForm.DisplayCustomer(addCustomerForm.Customer);
-
                 return addCustomerForm.Customer;
+            }
+
+            return null;
+        }
+
+        public Customer ModifyCustomer(int customerID)
+        {
+            var modifyCustomerForm = _moduleController.GetView<IfrmModifyCustomer>();
+            modifyCustomerForm.CustomerID = customerID;
+            var dialogResult = modifyCustomerForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                return modifyCustomerForm.Customer;
             }
 
             return null;

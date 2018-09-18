@@ -95,5 +95,14 @@ namespace Chapter24.CustomerMaintenance.Properties {
                 return ResourceManager.GetString("ErrorUnableToAddCustomer", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to modify the customer.  ID is invalid..
+        /// </summary>
+        internal static string ErrorUnableToModifyCustomerInvalidID {
+            get {
+                return ResourceManager.GetString("ErrorUnableToModifyCustomerInvalidID", resourceCulture);
+            }
+        }
     }
 }

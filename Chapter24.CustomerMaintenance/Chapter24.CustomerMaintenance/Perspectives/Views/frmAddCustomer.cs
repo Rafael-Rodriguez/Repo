@@ -46,9 +46,9 @@ namespace Chapter24.CustomerMaintenance.Perspectives.Views
             Controller.OnLoad();
         }
 
-        public void InitializeStateComboBox(List<State> list)
+        public void InitializeStateComboBox(List<State> states)
         {
-            cboBoxState.DataSource = list;
+            cboBoxState.DataSource = states;
             cboBoxState.DisplayMember = "StateName";
             cboBoxState.ValueMember = "StateCode";
         }

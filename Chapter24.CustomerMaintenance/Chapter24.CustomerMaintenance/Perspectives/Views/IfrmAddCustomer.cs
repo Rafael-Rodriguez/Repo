@@ -10,6 +10,6 @@ namespace Chapter24.CustomerMaintenance.Perspectives.Views
 
         DialogResult ShowDialog();
 
-        void InitializeStateComboBox(List<State> list);
+        void InitializeStateComboBox(List<State> states);
     }
 }

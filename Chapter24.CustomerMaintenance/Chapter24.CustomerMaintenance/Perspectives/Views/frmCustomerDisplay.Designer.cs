@@ -156,6 +156,7 @@
             this.btnModifyCustomer.TabIndex = 6;
             this.btnModifyCustomer.Text = "Modify";
             this.btnModifyCustomer.UseVisualStyleBackColor = true;
+            this.btnModifyCustomer.Click += new System.EventHandler(this.btnModifyCustomer_Click);
             // 
             // btnDeleteCustomer
             // 
