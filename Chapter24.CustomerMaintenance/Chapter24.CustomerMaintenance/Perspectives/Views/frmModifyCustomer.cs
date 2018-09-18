@@ -5,6 +5,7 @@ using Chapter24.CustomerMaintenance.Perspectives.Views;
 using System.Windows.Forms;
 using Chapter24.CustomerMaintenance.Database;
 using Chapter24.CustomerMaintenance.Model;
+using Chapter24.CustomerMaintenance.Perspectives.Extensions;
 
 namespace Chapter24.CustomerMaintenance.Perspectives
 {
@@ -13,6 +14,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
         private IModuleController _moduleController;
         private frmModifyCustomerController _controller;
         private readonly object _syncLock = new object();
+        private Customer _customer;
 
         public frmModifyCustomer(IModuleController controller)
         {
@@ -20,7 +22,24 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             InitializeComponent();
         }
 
-        public Customer Customer { get; set; }
+        public Customer Customer
+        {
+            get
+            {
+                if (_customer == null)
+                {
+                    lock (_syncLock)
+                    {
+                        if (_customer == null)
+                        {
+                            _customer = new Customer();
+                        }
+                    }
+                }
+
+                return _customer;
+            }
+        }
 
         public int CustomerID { get; set; }
 
@@ -65,6 +84,59 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             Controller.OnLoad(CustomerID);
         }
 
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
 
+        private void btnAccept_Click(object sender, System.EventArgs e)
+        {
+            if (IsValidData())
+            {
+                UpdateCustomer();
+
+                var result = Controller.ModifyCustomer(Customer);
+
+                if (result.Value == SaveChangesResult.Result.Ok)
+                {
+                    DialogResult = DialogResult.OK;
+                }
+                else if (result.Value == SaveChangesResult.Result.Abort)
+                {
+                    MessageBox.Show(Properties.Resources.ErrorUnableToSaveCustomerAnotherUserHasDeleted);
+                    DialogResult = DialogResult.Abort;
+                }
+                else if (result.Value == SaveChangesResult.Result.Retry)
+                {
+                    MessageBox.Show(Properties.Resources.ErrorUnableToSaveCustomerAnotherUserHasModified);
+                    DialogResult = DialogResult.Retry;
+                }
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.ErrorInvalidTextboxData);
+            }
+        }
+
+        private void UpdateCustomer()
+        {
+            Customer.Name = txtBoxName.Text;
+            Customer.Address = txtBoxAddress.Text;
+            Customer.City = txtBoxCity.Text;
+            Customer.StateCode = cboBoxState.SelectedValue.ToString();
+            Customer.ZipCode = txtBoxZipCode.Text;
+            Customer.CustomerID = CustomerID;
+        }
+
+        private bool IsValidData()
+        {
+            if (txtBoxName.IsAlphaOnly() && txtBoxAddress.IsAlphaNumericOnly() && txtBoxCity.IsAlphaOnly() && txtBoxZipCode.IsInt32())
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

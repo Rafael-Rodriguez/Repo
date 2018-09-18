@@ -132,4 +132,10 @@
   <data name="ErrorUnableToModifyCustomerInvalidID" xml:space="preserve">
     <value>Unable to modify the customer.  ID is invalid.</value>
   </data>
+  <data name="ErrorUnableToSaveCustomerAnotherUserHasDeleted" xml:space="preserve">
+    <value>Unable to save the customer.  Another user has deleted that customer.</value>
+  </data>
+  <data name="ErrorUnableToSaveCustomerAnotherUserHasModified" xml:space="preserve">
+    <value>Unable to save the customer.  Antoher user has modified that customer.</value>
+  </data>
 </root>

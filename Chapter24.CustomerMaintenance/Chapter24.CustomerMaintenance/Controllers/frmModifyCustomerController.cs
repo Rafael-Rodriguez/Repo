@@ -1,11 +1,11 @@
 ﻿using Chapter24.CustomerMaintenance.Database;
+using Chapter24.CustomerMaintenance.Model;
 using Chapter24.CustomerMaintenance.Perspectives.Views;
 
 namespace Chapter24.CustomerMaintenance.Controllers
 {
     public class frmModifyCustomerController : Controller<IfrmModifyCustomer>
     {
-        private IfrmModifyCustomer _view;
         private readonly object _syncLock = new object();
         private IStateRepository _stateRepository;
         private ICustomerRepository _customerRepository;
@@ -75,6 +75,11 @@ namespace Chapter24.CustomerMaintenance.Controllers
                 View.DisplayCustomer(customer);
             }
             
+        }
+
+        public SaveChangesResult ModifyCustomer(Customer customer)
+        {
+            return CustomerRepository.SaveChanges(customer);
         }
     }
 }

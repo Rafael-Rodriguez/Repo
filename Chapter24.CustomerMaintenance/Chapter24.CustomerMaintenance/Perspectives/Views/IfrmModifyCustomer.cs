@@ -8,7 +8,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives.Views
     {
         int CustomerID { get; set; }
 
-        Customer Customer { get; set; }
+        Customer Customer { get; }
 
         DialogResult ShowDialog();
 

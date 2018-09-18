@@ -104,5 +104,23 @@ namespace Chapter24.CustomerMaintenance.Properties {
                 return ResourceManager.GetString("ErrorUnableToModifyCustomerInvalidID", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to save the customer.  Another user has deleted that customer..
+        /// </summary>
+        internal static string ErrorUnableToSaveCustomerAnotherUserHasDeleted {
+            get {
+                return ResourceManager.GetString("ErrorUnableToSaveCustomerAnotherUserHasDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to save the customer.  Antoher user has modified that customer..
+        /// </summary>
+        internal static string ErrorUnableToSaveCustomerAnotherUserHasModified {
+            get {
+                return ResourceManager.GetString("ErrorUnableToSaveCustomerAnotherUserHasModified", resourceCulture);
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Chapter24.CustomerMaintenance.Model;
 using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace Chapter24.CustomerMaintenance.Database
@@ -54,6 +56,28 @@ namespace Chapter24.CustomerMaintenance.Database
             }
 
             return true;
+        }
+
+        public SaveChangesResult SaveChanges(Customer customer)
+        {
+            try
+            {
+                DbContext.SaveChanges();
+                return new SaveChangesResult() {Value = SaveChangesResult.Result.Ok};
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                ex.Entries.Single().Reload();
+                if (DbContext.Entry(customer).State == EntityState.Detached)
+                {
+                    return new SaveChangesResult() { Value = SaveChangesResult.Result.Abort };
+                }
+                else
+                {
+                    return new SaveChangesResult() {Value = SaveChangesResult.Result.Retry };
+                }
+            }
+            
         }
     }
 }

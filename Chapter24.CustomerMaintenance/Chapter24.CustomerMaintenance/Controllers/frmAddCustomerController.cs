@@ -8,7 +8,6 @@ namespace Chapter24.CustomerMaintenance.Controllers
 {
     public class frmAddCustomerController : Controller<IfrmAddCustomer>
     {
-        private IfrmAddCustomer _view;
         private IStateRepository _stateRepository;
         private ICustomerRepository _customerRepository;
         private readonly object _syncLock = new object();
