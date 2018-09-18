@@ -18,6 +18,8 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             InitializeComponent();
         }
 
+        public Customer Customer { get; set; }
+
         private frmCustomerDisplayController Controller
         {
             get
@@ -53,6 +55,8 @@ namespace Chapter24.CustomerMaintenance.Perspectives
 
             btnModifyCustomer.Enabled = true;
             btnDeleteCustomer.Enabled = true;
+
+            Customer = customer;
         }
 
         public void ClearControls()
@@ -82,13 +86,13 @@ namespace Chapter24.CustomerMaintenance.Perspectives
 
         private void btnModifyCustomer_Click(object sender, System.EventArgs e)
         {
-            if (!int.TryParse(txtBoxCustomerID.Text, out int customerID))
+            /*if (!int.TryParse(txtBoxCustomerID.Text, out int customerID))
             {
                 MessageBox.Show(Properties.Resources.ErrorUnableToModifyCustomerInvalidID);
                 return;
-            }
+            }*/
 
-            Controller.ModifyCustomer(customerID);
+            Controller.ModifyCustomer(Customer);
         }
     }
 }

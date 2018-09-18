@@ -55,26 +55,15 @@ namespace Chapter24.CustomerMaintenance.Controllers
         }
 
 
-        public void OnLoad(int customerID)
+        public void OnLoad(Customer customer)
         {
             LoadStateComboBox();
-            LoadCustomerInfo(customerID);
+            View.DisplayCustomer(customer);
         }
 
         private void LoadStateComboBox()
         {
             View.InitializeStateComboBox(StateRepository.GetStates());
-        }
-
-        private void LoadCustomerInfo(int customerID)
-        {
-            var customer = CustomerRepository.GetCustomerById(customerID);
-
-            if (customer != null)
-            {
-                View.DisplayCustomer(customer);
-            }
-            
         }
 
         public SaveChangesResult ModifyCustomer(Customer customer)

@@ -8,34 +8,15 @@ namespace Chapter24.CustomerMaintenance.Database
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private MMABooksEntities _dbContext;
-        private object _syncLock = new object();
-
-        private MMABooksEntities DbContext
-        {
-            get
-            {
-                if (_dbContext == null)
-                {
-                    lock (_syncLock)
-                    {
-                        _dbContext = new MMABooksEntities();
-                    }
-                }
-
-                return _dbContext;
-            }
-        }
-
         public Customer GetCustomerById(int customerID)
         {
-            var matchingCustomer = DbContext.Customers.Where(customer => customer.CustomerID == customerID).SingleOrDefault();
+            var matchingCustomer = MMABooksEntity.Instance.DbContext.Customers.Where(customer => customer.CustomerID == customerID).SingleOrDefault();
 
             if (matchingCustomer != null)
             {
-                if (!DbContext.Entry(matchingCustomer).Reference("State").IsLoaded)
+                if (!MMABooksEntity.Instance.DbContext.Entry(matchingCustomer).Reference("State").IsLoaded)
                 {
-                    DbContext.Entry(matchingCustomer).Reference("State").Load();
+                    MMABooksEntity.Instance.DbContext.Entry(matchingCustomer).Reference("State").Load();
                 }
             }
 
@@ -44,11 +25,11 @@ namespace Chapter24.CustomerMaintenance.Database
 
         public bool AddCustomer(Customer customer)
         {
-            DbContext.Customers.Add(customer);
+            MMABooksEntity.Instance.DbContext.Customers.Add(customer);
 
             try
             {
-                DbContext.SaveChanges();
+                MMABooksEntity.Instance.DbContext.SaveChanges();
             }
             catch (Exception)
             {
@@ -62,13 +43,14 @@ namespace Chapter24.CustomerMaintenance.Database
         {
             try
             {
-                DbContext.SaveChanges();
+                MMABooksEntity.Instance.DbContext.Entry(customer).State = EntityState.Modified;
+                MMABooksEntity.Instance.DbContext.SaveChanges();
                 return new SaveChangesResult() {Value = SaveChangesResult.Result.Ok};
             }
             catch (DbUpdateConcurrencyException ex)
             {
                 ex.Entries.Single().Reload();
-                if (DbContext.Entry(customer).State == EntityState.Detached)
+                if (MMABooksEntity.Instance.DbContext.Entry(customer).State == EntityState.Detached)
                 {
                     return new SaveChangesResult() { Value = SaveChangesResult.Result.Abort };
                 }

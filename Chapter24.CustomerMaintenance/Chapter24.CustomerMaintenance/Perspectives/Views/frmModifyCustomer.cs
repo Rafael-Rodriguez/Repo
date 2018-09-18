@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Chapter24.CustomerMaintenance.Controllers;
-using Chapter24.CustomerMaintenance.EventArgs;
 using Chapter24.CustomerMaintenance.Perspectives.Views;
 using System.Windows.Forms;
 using Chapter24.CustomerMaintenance.Database;
@@ -14,7 +13,6 @@ namespace Chapter24.CustomerMaintenance.Perspectives
         private IModuleController _moduleController;
         private frmModifyCustomerController _controller;
         private readonly object _syncLock = new object();
-        private Customer _customer;
 
         public frmModifyCustomer(IModuleController controller)
         {
@@ -22,26 +20,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             InitializeComponent();
         }
 
-        public Customer Customer
-        {
-            get
-            {
-                if (_customer == null)
-                {
-                    lock (_syncLock)
-                    {
-                        if (_customer == null)
-                        {
-                            _customer = new Customer();
-                        }
-                    }
-                }
-
-                return _customer;
-            }
-        }
-
-        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
 
         private frmModifyCustomerController Controller
         {
@@ -81,7 +60,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives
 
         private void frmModifyCustomer_Load(object sender, System.EventArgs e)
         {
-            Controller.OnLoad(CustomerID);
+            Controller.OnLoad(Customer);
         }
 
         private void btnCancel_Click(object sender, System.EventArgs e)
@@ -126,7 +105,6 @@ namespace Chapter24.CustomerMaintenance.Perspectives
             Customer.City = txtBoxCity.Text;
             Customer.StateCode = cboBoxState.SelectedValue.ToString();
             Customer.ZipCode = txtBoxZipCode.Text;
-            Customer.CustomerID = CustomerID;
         }
 
         private bool IsValidData()

@@ -5,6 +5,6 @@ namespace Chapter24.CustomerMaintenance.Services
     public interface IProgramFlowManager : IService
     {
         Customer AddNewCustomer();
-        Customer ModifyCustomer(int customerId);
+        Customer ModifyCustomer(Customer customer);
     }
 }

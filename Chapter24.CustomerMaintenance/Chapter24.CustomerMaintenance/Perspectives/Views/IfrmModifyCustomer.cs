@@ -6,9 +6,7 @@ namespace Chapter24.CustomerMaintenance.Perspectives.Views
 {
     public interface IfrmModifyCustomer : IView
     {
-        int CustomerID { get; set; }
-
-        Customer Customer { get; }
+        Customer Customer { get; set; }
 
         DialogResult ShowDialog();
 

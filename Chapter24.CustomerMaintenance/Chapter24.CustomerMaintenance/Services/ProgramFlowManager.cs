@@ -1,6 +1,5 @@
 ﻿using Chapter24.CustomerMaintenance.Controllers;
 using Chapter24.CustomerMaintenance.Model;
-using Chapter24.CustomerMaintenance.Perspectives;
 using Chapter24.CustomerMaintenance.Perspectives.Views;
 using System.Windows.Forms;
 
@@ -29,10 +28,10 @@ namespace Chapter24.CustomerMaintenance.Services
             return null;
         }
 
-        public Customer ModifyCustomer(int customerID)
+        public Customer ModifyCustomer(Customer customer)
         {
             var modifyCustomerForm = _moduleController.GetView<IfrmModifyCustomer>();
-            modifyCustomerForm.CustomerID = customerID;
+            modifyCustomerForm.Customer = customer;
             var dialogResult = modifyCustomerForm.ShowDialog();
 
             if (dialogResult == DialogResult.OK)

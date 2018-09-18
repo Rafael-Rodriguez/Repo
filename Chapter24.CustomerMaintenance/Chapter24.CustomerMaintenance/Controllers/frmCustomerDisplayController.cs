@@ -1,6 +1,5 @@
 ﻿using System;
 using Chapter24.CustomerMaintenance.Database;
-using Chapter24.CustomerMaintenance.EventArgs;
 using Chapter24.CustomerMaintenance.Model;
 using Chapter24.CustomerMaintenance.Perspectives;
 using Chapter24.CustomerMaintenance.Perspectives.Components;
@@ -106,10 +105,10 @@ namespace Chapter24.CustomerMaintenance.Controllers
             }
         }
 
-        public void ModifyCustomer(int customerId)
+        public void ModifyCustomer(Customer customer)
         {
             var programFlowManager = ModuleController.GetService<IProgramFlowManager>();
-            Customer customerModified = programFlowManager.ModifyCustomer(customerId);
+            Customer customerModified = programFlowManager.ModifyCustomer(customer);
 
             if (customerModified != null)
             {

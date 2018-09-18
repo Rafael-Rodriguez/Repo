@@ -62,6 +62,7 @@
     <Compile Include="Controllers\frmCustomerDisplayController.cs" />
     <Compile Include="Controllers\IModuleController.cs" />
     <Compile Include="Database\CustomerRepository.cs" />
+    <Compile Include="Database\MMABooksEntity.cs" />
     <Compile Include="Database\ICustomerRepository.cs" />
     <Compile Include="Database\IStateRepository.cs" />
     <Compile Include="Database\SaveChangesResult.cs" />
