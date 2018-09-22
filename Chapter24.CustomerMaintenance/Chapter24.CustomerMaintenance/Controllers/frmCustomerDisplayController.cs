@@ -94,6 +94,16 @@ namespace Chapter24.CustomerMaintenance.Controllers
             }
         }
 
+        public void DeleteCustomer(Customer customer)
+        {
+            var saveChangesResult = CustomerRepository.DeleteCustomer(customer);
+
+            if(saveChangesResult.Value == SaveChangesResult.Result.Ok)
+            {
+                View.ClearControls();
+            }
+        }
+
         public void AddCustomer()
         {
             var programFlowManager = ModuleController.GetService<IProgramFlowManager>();

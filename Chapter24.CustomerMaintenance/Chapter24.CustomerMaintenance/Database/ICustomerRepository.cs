@@ -9,5 +9,7 @@ namespace Chapter24.CustomerMaintenance.Database
         bool AddCustomer(Customer customer);
 
         SaveChangesResult SaveChanges(Customer customer);
+
+        SaveChangesResult DeleteCustomer(Customer customer);
     }
 }

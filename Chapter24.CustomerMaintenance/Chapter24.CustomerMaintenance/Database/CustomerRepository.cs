@@ -59,7 +59,29 @@ namespace Chapter24.CustomerMaintenance.Database
                     return new SaveChangesResult() {Value = SaveChangesResult.Result.Retry };
                 }
             }
-            
+        }
+
+        public SaveChangesResult DeleteCustomer(Customer customer)
+        {
+            try
+            {
+                MMABooksEntity.Instance.DbContext.Customers.Remove(customer);
+                MMABooksEntity.Instance.DbContext.SaveChanges();
+                return new SaveChangesResult() { Value = SaveChangesResult.Result.Ok };
+            }
+            catch(DbUpdateConcurrencyException ex)
+            {
+                ex.Entries.Single().Reload();
+                if(MMABooksEntity.Instance.DbContext.Entry(customer).State == EntityState.Detached)
+                {
+                    return new SaveChangesResult() { Value = SaveChangesResult.Result.Abort };
+                }
+                else
+                {
+                    return new SaveChangesResult() { Value = SaveChangesResult.Result.Retry };
+                }
+            }
+
         }
     }
 }
