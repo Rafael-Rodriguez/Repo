@@ -3,6 +3,7 @@ using Chapter24.CustomerMaintenance.Database;
 using Chapter24.CustomerMaintenance.Model;
 using Chapter24.CustomerMaintenance.Perspectives;
 using Chapter24.CustomerMaintenance.Perspectives.Components;
+using Chapter24.CustomerMaintenance.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -78,6 +79,95 @@ namespace Chapter24.CustomerMaintenanceTest.Controllers
             _sut.DisplayCustomer(customerID.ToString());
 
             _viewMock.Verify(view => view.DisplayCustomer(expectedCustomer), Times.Once);
+        }
+
+        [TestMethod]
+        public void AddCustomer_ProgramFlowManagerAddCustomerIsCalled()
+        {
+            Mock<IProgramFlowManager> _programFlowManagerMock = new Mock<IProgramFlowManager>();
+
+            _moduleControllerMock.Setup(controller => controller.GetService<IProgramFlowManager>()).Returns(_programFlowManagerMock.Object);
+
+            _sut.AddCustomer();
+
+            _programFlowManagerMock.Verify(flowManager => flowManager.AddNewCustomer(), Times.Once);
+        }
+
+        [TestMethod]
+        public void AddCustomer_ProgramFlowManagerAddCustomerReturnsNull_CustomerIsNotDisplayed()
+        {
+            Mock<IProgramFlowManager> _programFlowManagerMock = new Mock<IProgramFlowManager>();
+            Customer customer = null;
+
+            _moduleControllerMock.Setup(controller => controller.GetService<IProgramFlowManager>()).Returns(_programFlowManagerMock.Object);
+            _programFlowManagerMock.Setup(flowManager => flowManager.AddNewCustomer()).Returns(customer);
+
+            _sut.AddCustomer();
+
+            _customerRepositoryMock.Verify(repository => repository.GetCustomerById(It.IsAny<int>()), Times.Never);
+        }
+
+        [TestMethod]
+        public void AddCustomer_ProgramFlowManagerAddCustomerReturnsCustomer_DisplayCustomerIDIsCalled()
+        {
+            Mock<IProgramFlowManager> _programFlowManagerMock = new Mock<IProgramFlowManager>();
+            Customer customer = new Customer();
+
+            _moduleControllerMock.Setup(controller => controller.GetService<IProgramFlowManager>()).Returns(_programFlowManagerMock.Object);
+            _programFlowManagerMock.Setup(flowManager => flowManager.AddNewCustomer()).Returns(customer);
+
+            _sut.AddCustomer();
+
+            _customerRepositoryMock.Verify(repository => repository.GetCustomerById(It.IsAny<int>()), Times.Once);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ModifyCustomer_CustomerIsNull_ArgumentNullExceptionIsThrown()
+        {
+            _sut.ModifyCustomer(null);
+        }
+
+        [TestMethod]
+        public void ModifyCustomer_ProgramFlowManagerModifyCustomerIsCalled()
+        {
+            Mock<IProgramFlowManager> _programFlowManagerMock = new Mock<IProgramFlowManager>();
+            Customer customer = new Customer();
+
+            _moduleControllerMock.Setup(controller => controller.GetService<IProgramFlowManager>()).Returns(_programFlowManagerMock.Object);
+
+            _sut.ModifyCustomer(customer);
+
+            _programFlowManagerMock.Verify(flowManager => flowManager.ModifyCustomer(customer), Times.Once);
+        }
+
+        [TestMethod]
+        public void ModifyCustomer_ProgramFlowManagerModifyCustomerReturnsNull_CustomerIsNotDisplayed()
+        {
+            Mock<IProgramFlowManager> _programFlowManagerMock = new Mock<IProgramFlowManager>();
+            Customer customer = new Customer();
+            Customer modifiedCustomer = null;
+
+            _moduleControllerMock.Setup(controller => controller.GetService<IProgramFlowManager>()).Returns(_programFlowManagerMock.Object);
+            _programFlowManagerMock.Setup(flowManager => flowManager.ModifyCustomer(customer)).Returns(modifiedCustomer);
+
+            _sut.ModifyCustomer(customer);
+
+            _customerRepositoryMock.Verify(repository => repository.GetCustomerById(It.IsAny<int>()), Times.Never);
+        }
+
+        [TestMethod]
+        public void ModifyCustomer_ProgramFlowManagerModifyCustomerReturnsCustomer_DisplayCustomerIDIsCalled()
+        {
+            Mock<IProgramFlowManager> _programFlowManagerMock = new Mock<IProgramFlowManager>();
+            Customer customer = new Customer();
+
+            _moduleControllerMock.Setup(controller => controller.GetService<IProgramFlowManager>()).Returns(_programFlowManagerMock.Object);
+            _programFlowManagerMock.Setup(flowManager => flowManager.ModifyCustomer(customer)).Returns(customer);
+
+            _sut.ModifyCustomer(customer);
+
+            _customerRepositoryMock.Verify(repository => repository.GetCustomerById(It.IsAny<int>()), Times.Once);
         }
     }
 }

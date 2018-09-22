@@ -117,6 +117,11 @@ namespace Chapter24.CustomerMaintenance.Controllers
 
         public void ModifyCustomer(Customer customer)
         {
+            if(customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+
             var programFlowManager = ModuleController.GetService<IProgramFlowManager>();
             Customer customerModified = programFlowManager.ModifyCustomer(customer);
 
