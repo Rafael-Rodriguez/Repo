@@ -169,5 +169,40 @@ namespace Chapter24.CustomerMaintenanceTest.Controllers
 
             _customerRepositoryMock.Verify(repository => repository.GetCustomerById(It.IsAny<int>()), Times.Once);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteCustomer_CustomerIsNull_ArgumentNullExceptionIsThrown()
+        {
+            _sut.DeleteCustomer(null);
+        }
+
+        [TestMethod]
+        public void DeleteCustomer_CustomerIsValid_CustomerRepositoryDeleteCustomerIsCalled()
+        {
+            Customer customer = new Customer();
+            SaveChangesResult result = new SaveChangesResult() { Value = SaveChangesResult.Result.Abort };
+
+            _customerRepositoryMock.Setup(repository => repository.DeleteCustomer(customer)).Returns(result);
+
+            _sut.DeleteCustomer(customer);
+
+            //Assert
+            _customerRepositoryMock.Verify(repository => repository.DeleteCustomer(customer), Times.Once);
+        }
+
+        [TestMethod]
+        public void DeleteCustomer_CustomerIsValid_CustomerRepositoryDeleteCustomerReturnsOk_ViewClearControlsIsCalled()
+        {
+            Customer customer = new Customer();
+            SaveChangesResult result = new SaveChangesResult() { Value = SaveChangesResult.Result.Ok };
+
+            _customerRepositoryMock.Setup(repository => repository.DeleteCustomer(customer)).Returns(result);
+
+            _sut.DeleteCustomer(customer);
+
+            //Assert
+            _viewMock.Verify(view => view.ClearControls(), Times.Once);
+        }
     }
 }

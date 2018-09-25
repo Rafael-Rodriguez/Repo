@@ -96,6 +96,11 @@ namespace Chapter24.CustomerMaintenance.Controllers
 
         public void DeleteCustomer(Customer customer)
         {
+            if(customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+
             var saveChangesResult = CustomerRepository.DeleteCustomer(customer);
 
             if(saveChangesResult.Value == SaveChangesResult.Result.Ok)
