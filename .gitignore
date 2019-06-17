@@ -1,0 +1,23 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Murach's JavaScript and JQuery/.vs/slnx.sqlite
+
+/Chapter20.CustomerMaintenance/Chapter20.CustomerMaintenance/obj/Debug
+/Chapter20.CustomerMaintenance/Chapter20.CustomerMaintenance/obj/Release
+/Chapter23.CustomerInvoices/Chapter23.CustomerInvoices/obj/Debug
+/Chapter23.CustomerInvoices/Chapter23.CustomerInvoices/obj/Release/Chapter23.CustomerInvoices.csproj.CoreCompileInputs.cache
+/Chapter24.CustomerDataModel/Chapter24.CustomerDataModel/obj/Debug
+/Chapter24.CustomerDataModel/Chapter24.CustomerDataModel/obj/Release
+/Chapter24.CustomerMaintenance/Chapter24.CustomerMaintenance/obj/Debug
+/Chapter24.CustomerMaintenance/Chapter24.CustomerMaintenance/obj/Release
+/Chapter19.CustomerMaintenance/Chapter19.CustomerMaintenance/obj
+/Chapter19.CustomerInvoices/Chapter19.CustomerInvoices/obj
+/Chapter18.DataGridView/Chapter18.DataGridView/obj
+/Chapter18.CustomerMaintenance/Chapter18.CustomerMaintenance/obj
+/.vs/Repo/v15
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/Repo/.vs/slnx.sqlite
