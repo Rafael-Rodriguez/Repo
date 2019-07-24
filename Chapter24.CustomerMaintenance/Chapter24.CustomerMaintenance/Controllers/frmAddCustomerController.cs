@@ -18,10 +18,11 @@ namespace Chapter24.CustomerMaintenance.Controllers
             View = view;
         }
 
-        internal frmAddCustomerController(IfrmAddCustomer view, IStateRepository stateRepository, IModuleController moduleController)
+        internal frmAddCustomerController(IfrmAddCustomer view, IStateRepository stateRepository, ICustomerRepository customerRepository, IModuleController moduleController)
             : base(moduleController)
         {
             View = view;
+            _customerRepository = customerRepository;
             _stateRepository = stateRepository;
         }
 
@@ -70,6 +71,11 @@ namespace Chapter24.CustomerMaintenance.Controllers
 
         internal bool AddCustomer(Customer customer)
         {
+            if (customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+
             if(!CustomerRepository.AddCustomer(customer))
             {
                 MessageBox.Show(Properties.Resources.ErrorUnableToAddCustomer);

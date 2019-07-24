@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Chapter24.CustomerMaintenance.Database
 {
-    interface IStateRepository
+    public interface IStateRepository
     {
         List<State> GetStates();
     }
