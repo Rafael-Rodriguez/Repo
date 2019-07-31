@@ -10,22 +10,22 @@ export default class Toggle
         var h2 = this;
         var div = h2.nextElementSibling;
 
-        if(h2.hasAttribute("class"))
+        if(h2.className == "minus")
         {
-            h2.removeAttribute("class");
+            h2.className = "";
         }
         else
         {
-            h2.setAttribute("class", "minus");
+            h2.className = "minus;"
         }
 
-        if(div.hasAttribute("class"))
+        if(div.className == "open")
         {
-            div.removeAttribute("class");
+            div.className = "";
         }
         else
         {
-            div.setAttribute("class", "open");
+            div.className = "open";
         }
     }
 
