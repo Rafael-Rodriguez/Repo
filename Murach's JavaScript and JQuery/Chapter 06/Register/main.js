@@ -7,69 +7,74 @@ var $ = function(id)
 
 var processEntries = function()
 {
-    var isValid = true;
+    var header = "";
+    var html = "";
+    var required = "<span>Required field</span>";
+    var msg = "Please review your entries and complete all required fields";
 
     var email = $("email_address").value;
     var phone = $("phone").value;
     var country = $("country").value;
+    var contact = "Text";
     var terms = $("terms").checked;
 
     if(email == "")
     {
-        $("email_address").nextElementSibling.firstChild.nodeValue = "This field is required.";
-
-        isValid = false;
-    }
-    else
-    {
-        $("email_address").nextElementSibling.firstChild.nodeValue = "";
+        email = required;
+        header = msg;
     }
 
     if(phone == "")
     {
-        $("phone").nextElementSibling.firstChild.nodeValue = "This field is required.";
-
-        isValid = false;
-    }
-    else
-    {
-        $("phone").nextElementSibling.firstChild.nodeValue = "";
+        phone = required;
+        header = msg;
     }
 
     if(country == "")
     {
-        $("country").nextElementSibling.firstChild.nodeValue = "This field is required.";
-
-        isValid = false;
+        country = required;
+        header = msg;
     }
-    else
+
+    if( $("email").checked )
     {
-        $("country").nextElementSibling.firstChild.nodeValue = "";
+        contact = "Email";
+    }
+
+    if( $("none").checked)
+    {
+        contact = "None;"
     }
 
     if(terms == false)
     {
-        $("terms").nextElementSibling.firstChild.nodeValue = "This box must be checked.";
-    
-        isValid = false;
+        terms = required;
+        header = msg;
+    }
+
+    $("registration_header").firstChild.nodeValue = header;
+    if(header == msg)
+    {
+        html = "<tr><td>Email: </td><td>" + email + "</td></tr>";
+        html += "<tr><td>Phone: </td><td>" + phone + "</td></tr>";
+        html += "<tr><td>Country: </td><td>" + country + "</td></tr>";
+        html += "<tr><td>Contact: </td><td>" + contact + "</td></tr>";
+        html += "<tr><td>Terms: </td><td>" + terms + "</td></tr>";
+        $("registration_info").innerHTML = html;
     }
     else
     {
-        $("terms").nextElementSibling.firstChild.nodeValue = "";
-    }
-
-    if(isValid == true)
-    {
+        $("registration_info").innerHTML = "";
         $("registration_form").submit();
     }
+
+
 }
 
 var resetForm = function() {
     $("registration_form").reset();
-    $("email_address").nextElementSibling.firstChild.nodeValue = "*";
-    $("phone").nextElementSibling.firstChild.nodeValue = "*";
-    $("country").nextElementSibling.firstChild.nodeValue = "*";
-    $("terms").nextElementSibling.firstChild.nodeValue = "*";
+    $("registration_header").firstChild.nodeValue = "";
+    $("registration_info").innerHTML = "";
     $("email_address").focus();
 }
 
