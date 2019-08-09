@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chapter 6 - Register</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="main.js"></script>
 </head>
 <body>
     <main>
@@ -14,12 +15,10 @@
             
             <label for="email_address">Email:</label>
             <input class="input_fields textbox" type="text" name="email_address" id="email_address">
-            <span>*</span>
             <br>
 
             <label for="phone">Phone:</label>
             <input class="input_fields textbox" type="tel" name="phone" id="phone">
-            <span>*</span>
             <br>
 
             <label for="country">Country:</label>
@@ -29,7 +28,6 @@
                 <option>Mexico</option>
                 <option>Canada</option>
             </select>
-            <span>*</span>
             <br>
 
             <label>Contact me by:</label>
@@ -40,7 +38,6 @@
             
             <label for="terms">Terms of Service:</label>
             <input class="input_fields" type="checkbox" name="terms" id="terms" value="none">I accept
-            <span>*</span>
             <br>
 
             <input type="button" id="register" value="Register">
@@ -48,6 +45,9 @@
             <br>
             
         </form>
+
+        <h2 id="registration_header">&nbsp;</h2>
+        <table id="registration_info"></table>
     </main>
 </body>
 </html>
