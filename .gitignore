@@ -21,5 +21,13 @@
 /.vs/slnx.sqlite
 /.vs/ProjectSettings.json
 /Repo/.vs/slnx.sqlite
-/Repo/.vs/VSWorkspaceState.json
+/Chapter19.CustomerInvoices/.vs/Chapter19.CustomerInvoices/v15
+/Chapter24.CustomerMaintenance/packages
+/Chapter24.CustomerMaintenance/Chapter24.CustomerMaintenanceTest/bin/Debug
+/Chapter24.CustomerMaintenance/Chapter24.CustomerMaintenanceTest/obj/Debug
+/Chapter24.CustomerMaintenance/Chapter24.CustomerMaintenance/.vs/Chapter24.CustomerMaintenance/v15/Server/sqlite3
+/Chapter24.CustomerMaintenance/Chapter24.CustomerMaintenance/bin/Debug
+/Chapter24.CustomerMaintenance/.vs/Chapter24.CustomerMaintenance/DesignTimeBuild
+/Chapter24.CustomerMaintenance/.vs/Chapter24.CustomerMaintenance/v15
 /Repo/.vs/Repo/v15/.suo
+/Repo/.vs/VSWorkspaceState.json
