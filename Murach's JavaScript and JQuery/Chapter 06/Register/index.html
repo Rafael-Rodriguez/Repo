@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chapter 6 - Register</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Register for an Account</h1>
+        <form action="register_account.html" method="GET" name="registration_form" id="registration_form">
+            
+            <label for="email_address">Email:</label>
+            <input class="input_fields textbox" type="text" name="email_address" id="email_address">
+            <br>
+
+            <label for="phone">Phone:</label>
+            <input class="input_fields textbox" type="tel" name="phone" id="phone">
+            <br>
+
+            <label for="country">Country:</label>
+            <select class="input_fields" name="country" id="country">
+                <option value="">Select a country</option>
+                <option>USA</option>
+                <option>Mexico</option>
+                <option>Canada</option>
+            </select>
+            <br>
+
+            <label for="comment">Comment:</label>
+            <textarea name="comment" id="comment" class="input_fields" rows="5" cols="40"></textarea>
+            <br>
+
+            <label>Contact me by:</label>
+            <input class="input_fields" type="radio" name="contact" id="contact_text" value="contact_text_value" checked>Text
+            <input type="radio" name="contact" id="contact_email" value="contact_email_value">Email
+            <input type="radio" name="contact" id="contact_phone" value="contact_phone_value">Phone
+            <input type="radio" name="contact" id="contact_none" value="contact_none_value">Don't contact me
+            <br>
+            
+            <label for="terms">Terms of Service:</label>
+            <input class="input_fields" type="checkbox" name="terms" id="terms" value="none">I accept
+            <br>
+
+            <input type="button" id="register" value="Register">
+            <input type="button" id="reset_form" value="Reset Form">
+            <br>
+            
+        </form>
+
+        <h2 id="registration_header">&nbsp;</h2>
+        <table id="registration_info"></table>
+    </main>
+</body>
+</html>
