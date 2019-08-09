@@ -48,3 +48,8 @@ h1
 {
     color: red;
 }
+
+#registration_info tr
+{
+    line-height: 1.5em;
+}
