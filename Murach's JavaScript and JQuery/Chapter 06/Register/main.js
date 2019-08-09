@@ -17,6 +17,7 @@ var processEntries = function()
     var country = $("country").value;
     var contact = "Text";
     var terms = $("terms").checked;
+    var comment = $("comment").value;
 
     if(email == "")
     {
@@ -36,12 +37,17 @@ var processEntries = function()
         header = msg;
     }
 
-    if( $("email").checked )
+    if($("contact_email").checked )
     {
         contact = "Email";
     }
 
-    if( $("none").checked)
+    if($("contact_phone").checked)
+    {
+        contact = "Phone";
+    }
+
+    if($("contact_none").checked)
     {
         contact = "None;"
     }
@@ -58,6 +64,7 @@ var processEntries = function()
         html = "<tr><td>Email: </td><td>" + email + "</td></tr>";
         html += "<tr><td>Phone: </td><td>" + phone + "</td></tr>";
         html += "<tr><td>Country: </td><td>" + country + "</td></tr>";
+        html += "<tr><td>Comment Length: </td><td>" + comment.length + "</td></tr>";
         html += "<tr><td>Contact: </td><td>" + contact + "</td></tr>";
         html += "<tr><td>Terms: </td><td>" + terms + "</td></tr>";
         $("registration_info").innerHTML = html;
