@@ -1,0 +1,48 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 3px solid blue;
+    width: 650px;
+    font-size: 87.5%;
+    margin: 0 auto;
+    padding: 15px 25px;
+}
+
+h1
+{
+    font-size: 200%;
+    padding: .25em 0 .25em 0;
+    color: coral;
+}
+
+#emailForm label
+{
+    position: absolute;
+    margin-top: 5px;
+}
+
+#emailForm .inputFields
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15em;
+}
+
+#emailForm input[type="text"]
+{
+    width: 350px;
+    font-family: Verdana;
+}
+
+#emailForm input[type="button"]
+{
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 5em;
+}
