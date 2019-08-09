@@ -1,3 +1,47 @@
+
+
+
+body
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 87.5%;
+    width: 650px;
+    margin: 0 auto;
+    border: 3px solid blue;
+    padding: 15px 25px;
+}
+
+h1
+{
+    font-size: 200%;
+    padding: .25em 0 .25em 0;
+    color: blue;
+}
+
+#registration_form .input_fields
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 14em;
+}
+
+#registration_form label
+{
+    position: absolute;
+    margin-top: 5px;
+}
+
+#registration_form input.textbox
+{
+    width: 350px;
+    font-family: Verdana;
+}
+
+#registration_form input[type="button"]
+{
+    width: 300px;
+}
+
 #registration_form span
 {
     color: red;
