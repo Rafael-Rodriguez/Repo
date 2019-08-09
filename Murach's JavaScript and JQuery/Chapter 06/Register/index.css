@@ -21,7 +21,7 @@ h1
 #registration_form .input_fields
 {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     margin-left: 14em;
 }
 
@@ -40,6 +40,8 @@ h1
 #registration_form input[type="button"]
 {
     width: 300px;
+    margin-top: 20px;
+    margin-left: 1.5em;
 }
 
 #registration_info span
