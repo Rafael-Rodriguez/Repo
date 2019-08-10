@@ -9,42 +9,50 @@ var joinList = function() {
     var emailAddress1 = $("emailAddress1").value;
     var emailAddress2 = $("emailAddress2").value;
     var firstName = $("firstName").value;
-    var errorMessage = "";
+    var passedErrorCheck = true;
 
     if(emailAddress1 == "")
     {
-        errorMessage = "First email address entry required.";
+        $("emailAddress1").nextElementSibling.firstChild.nodeValue = "First email address entry required.";
         $("emailAddress1").focus();
+        passedErrorCheck = false;
     }
-    else if(emailAddress2 == "")
+    
+    
+    if(emailAddress2 == "")
     {
-        errorMessage = "Second email address entry required.";
+        $("emailAddress2").nextElementSibling.firstChild.nodeValue = "Second email address entry required.";
         $("emailAddress2").focus();
-    }
-    else if(emailAddress1 != emailAddress2)
-    {
-        errorMessage = "Email address entries must match";
-        $("emailAddress2").focus();
-    }
-    else if(firstName == "")
-    {
-        errorMessage = "First name entry required.";
-        $(firstName).focus();
+        passedErrorCheck = false;
     }
 
-    if(errorMessage == "")
+    if(emailAddress1 != emailAddress2)
+    {
+        var errorMessage = "Email address entries must match";
+        $("emailAddress1").nextElementSibling.firstChild.nodeValue = errorMessage;
+        $("emailAddress2").nextElementSibling.firstChild.nodeValue = errorMessage;
+        $("emailAddress2").focus();
+        passedErrorCheck = false;
+    }
+    
+    if(firstName == "")
+    {
+        $("firstName").nextElementSibling.firstChild.nodeValue = "First name entry required.";
+        $("firstName").focus();
+        passedErrorCheck = false;
+    }
+    
+    if(passedErrorCheck)
     {
         $("emailForm").submit();
-    }
-    else 
-    {
-        alert(errorMessage);
     }
 }
 
 var resetForm = function() {
     $("emailForm").reset();
-
+    $("emailAddress1").nextElementSibling.firstChild.nodeValue = "*";
+    $("emailAddress2").nextElementSibling.firstChild.nodeValue = "*";
+    $("firstName").nextElementSibling.firstChild.nodeValue = "*";
 }
 
 window.onload = function()
