@@ -27,7 +27,7 @@ namespace AddTwoNumbers
 
         static ListNode GenerateListNodeListFromNumber(int value)
         {
-            List<int> listOfInts = new List<int>();
+            var listOfInts = new List<int>();
             if(value == 0)
             {
                 listOfInts.Add(value);
@@ -43,9 +43,8 @@ namespace AddTwoNumbers
 
             ListNode head = null;
             ListNode previousNode = null;
-            ListNode currentNode = null;
 
-            foreach (int i in listOfInts)
+            foreach (var i in listOfInts)
             {
                 if(head == null)
                 {
@@ -54,7 +53,7 @@ namespace AddTwoNumbers
                 }
                 else
                 {
-                    currentNode = new ListNode(i);
+                    var currentNode = new ListNode(i);
                     previousNode.next = currentNode;
                     previousNode = currentNode;
                 }
@@ -67,9 +66,10 @@ namespace AddTwoNumbers
         {
             while(listNode != null)
             {
-                Console.WriteLine(" \"" + listNode.val + " \"");
+                Console.Write(listNode.val + (listNode.next != null ? "->" : ""));
                 listNode = listNode.next;
             }
+            Console.WriteLine();
         }
 
     }
