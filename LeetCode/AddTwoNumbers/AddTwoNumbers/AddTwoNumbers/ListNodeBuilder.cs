@@ -2,32 +2,9 @@
 
 namespace AddTwoNumbers
 {
-    public class Solution
+    class ListNodeBuilder
     {
-        public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
-        {
-            var l1Value = GenerateIntFromListNode(l1);
-            var l2Value = GenerateIntFromListNode(l2);
-
-            return GenerateListNodeFromInt(l1Value + l2Value);
-        }
-
-        private int GenerateIntFromListNode(ListNode listNode)
-        {
-            int result = 0;
-            int power = 1;
-
-            while (listNode != null)
-            {
-                result += listNode.val * power;
-                power *= 10;
-                listNode = listNode.next;
-            }
-
-            return result;
-        }
-
-        private ListNode GenerateListNodeFromInt(int value)
+        public ListNode GenerateListNodeFromInt(int value)
         {
             var listOfInts = new List<int>();
             if (value == 0)
